@@ -1,0 +1,29 @@
+.navigationContainer {
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  margin: 1rem 0rem;
+  padding: 0.2rem 5rem;
+}
+
+.logo {
+  width: 100%;
+  height: 100%;
+}
+.logoDiv {
+  width: 4rem !important;
+  height: 4rem !important;
+}
+.navigationItems {
+  display: flex;
+  align-items: center;
+  margin: 0rem 0rem 0rem 6rem;
+}
+.navigationItems > p {
+  margin: 0rem 1rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  cursor: pointer;
+  position: relative;
+}

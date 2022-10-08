@@ -1,0 +1,54 @@
+.container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 2rem;
+}
+.container > div {
+  margin: 0rem 1rem;
+}
+.departmentDropdown {
+  flex: 0.5;
+  padding: 1rem;
+  text-align: center;
+  border: 2px solid #eee;
+  font-weight: bold;
+}
+.searchBox {
+  flex: 2;
+  display: flex;
+}
+
+.userInfo {
+  flex: 1;
+}
+
+.input {
+  padding: 0.7rem 2rem;
+  font-size: 1rem;
+  border-radius: 0.7rem 0rem 0rem 0.7rem;
+  width: 80%;
+  border: 2px solid #eee;
+}
+.cateogoryDropdown {
+  flex: 0.5;
+  padding: 1rem;
+  text-align: center;
+  border: 2px solid #eee;
+  border-left: 0;
+  font-weight: bold;
+}
+.cateogoryDropdown>select{
+    padding: 0.2rem;
+    border: 0;
+    cursor: pointer;
+}
+.searchIcon {
+  background-color: #0275d8;
+  height: inherit;
+  border-radius: 0rem 0.5rem 0.5rem 0rem;
+  width: 3.5rem;
+}
+
