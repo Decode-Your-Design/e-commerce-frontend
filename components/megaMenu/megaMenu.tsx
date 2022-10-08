@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import styles from "../../styles/megaMenu.module.css";
 import { megaMenuItems } from "../../data";
-export default function megaMenu({ timeOutId, setCurrentHovered }) {
+export default function megaMenu({ timeOutId, setCurrentHovered }:any) {
   return (
     <div
       onMouseOver={() => clearTimeout(timeOutId)}
