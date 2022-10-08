@@ -1,0 +1,18 @@
+.headerContainer{
+    width: 100%;
+    background-color: #f9f9f9;
+    height: 6vh;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    padding: 1rem 0rem;
+}
+
+.headerContainer>p{
+    margin: 0rem 2rem;
+    color: #444;
+}
+.headerContainer>span{
+    margin: 0rem 2rem;
+    color: #dedede;
+}
