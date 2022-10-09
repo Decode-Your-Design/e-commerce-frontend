@@ -11,13 +11,18 @@
 }
 .departmentDropdown {
   flex: 0.5;
+  display: flex;
   padding: 1rem;
+  align-items: center;
   text-align: center;
   border: 2px solid #eee;
   font-weight: bold;
+  justify-content: center;
+  position: relative;
 }
 .departmentDropdown>p{
   color: #444;
+  margin-right: 0.2rem;
 }
 .searchBox {
   flex: 2;
