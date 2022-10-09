@@ -22,7 +22,7 @@
 }
 .departmentDropdown>p{
   color: #444;
-  margin-right: 0.2rem;
+  margin: 0 0.3rem 0 0.2rem;
 }
 .searchBox {
   flex: 2;
@@ -58,5 +58,41 @@
   height: inherit;
   border-radius: 0rem 0.5rem 0.5rem 0rem;
   width: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+.userInfo{
+  display: flex;
+  align-items: center;
+ 
+}
+
+.badge{
+  margin-left: 1rem;
+  display: flex;
+  align-items: center;
+}
+.badge>div{
+  width: 20px;
+  height: 20px;
+  background-color: #e8eff4;
+display: flex;
+justify-content: center;
+align-items: center;
+  border-radius: 50%;
+}
+
+.cartAmount{
+  margin-left: 1.3rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.cartAmount>p{
+  font-weight: bold
+}
+.cartAmount>span{
+ color:#676767
+}

@@ -28,6 +28,7 @@ margin: 1rem 0rem 0rem 4rem;
 text-align: center;
 font-weight: bold;
 color: #0275d8;
+cursor: pointer;
 border-radius: 0.5rem;
 animation: 1.8s buttonAnimation ;  
 }

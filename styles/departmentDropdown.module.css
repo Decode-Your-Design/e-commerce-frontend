@@ -1,4 +1,15 @@
 .department_dropdown{
     position: absolute;
-    top: 1rem;
+    top: 4.5rem;
+    background-color: white;
+    box-shadow: 2px 2px 10px gray;
+    width: auto;
+    height: auto;
+    padding: 1rem 2rem;
+    z-index: 2;
+}
+.department_dropdown>p{
+    color: #43454b;
+    cursor: pointer;
+    font-weight: 400;
 }

@@ -118,3 +118,18 @@ export const PRODUCT = [
   },
 ];
   
+
+export const allDepartments=[
+  "Top 100 offers",
+  "New arrivals",
+  "Top 100 offers",
+  "New arrivals",
+  "Top 100 offers",
+  "New arrivals",
+  "Top 100 offers",
+  "New arrivals",
+  "Top 100 offers",
+  "New arrivals",
+  "Top 100 offers",
+  "New arrivals",
+]
