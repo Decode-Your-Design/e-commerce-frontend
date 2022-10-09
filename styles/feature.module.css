@@ -1,0 +1,32 @@
+/* feature component css  */
+.section_feature {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
+  height: 50vh;
+  margin: 2rem 4rem;
+}
+.left_box {
+  border: none;
+  border-radius: 5px;
+  text-align: left;
+  display: grid;
+  /* grid-template-rows: 14rem 1fr; */
+}
+.header{
+    justify-self: start;
+    align-self: flex-end;
+}
+.footer_para{
+    text-transform: uppercase;
+    font-weight: 600;
+    
+}
+.btn {
+  border-radius: 10rem;
+  width: 3rem;
+  height: 3rem;
+  border: none;
+  outline: none;
+  border: 1px solid #c4c4c4;
+  color: #c4c4c4;
+}
