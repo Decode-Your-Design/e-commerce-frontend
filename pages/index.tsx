@@ -8,9 +8,11 @@ import { DEALS } from "../data";
 import { useEffect, useState } from "react";
 import DealsSlider from "../components/weeklyDealSlider/dealsSlider";
 import DealsTabs from "../components/weeklyDealTabs/DealsTabs";
+import FeatureSlider from "../components/featureSlider/featureSlider";
 
 const Home: NextPage = () => {
   const [count, setCount] = useState(0);
+  const [featureSlide, setfeatureSlide] = useState(0);
 
   return (
     <>
@@ -48,9 +50,13 @@ const Home: NextPage = () => {
           </div>
           <p className={feature.footer_para}>Full catalog</p>
         </div>
-        <div className={feature.right_box}>
-          <DealsTabs />
-        </div>
+        <div className={feature.right_box}></div>
+        <FeatureSlider
+          deals={DEALS}
+          next={() => setCount(count + 1)}
+          prev={() => setCount(count - 1)}
+          currentSlide={count}
+        />
       </div>
     </>
   );

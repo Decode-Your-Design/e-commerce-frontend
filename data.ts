@@ -118,3 +118,54 @@ export const PRODUCT = [
   },
 ];
   
+
+export const CATEGORY = [
+  {
+    logo:'https://demo2.chethemes.com/techmarket/wp-content/uploads/2017/06/8-220x197.png',
+    title:'All in One'
+  },
+  {
+    logo:'https://demo2.chethemes.com/techmarket/wp-content/uploads/2017/06/1-220x197.png',
+    title:'Audio & Music'
+  },
+  {
+    logo:'https://demo2.chethemes.com/techmarket/wp-content/uploads/2017/06/16-220x197.png',
+    title:'Phone & Tablets'
+  },
+  {
+    logo:'https://demo2.chethemes.com/techmarket/wp-content/uploads/2017/06/7-220x197.png',
+    title:'Computers & Laptops'
+  },
+  {
+    logo:'https://demo2.chethemes.com/techmarket/wp-content/uploads/2017/06/9-220x197.png',
+    title:'Desktops PC'
+  },
+  {
+    logo:'https://demo2.chethemes.com/techmarket/wp-content/uploads/2017/06/17-220x197.png',
+    title:'Camera'
+  },
+  {
+    logo:'https://demo2.chethemes.com/techmarket/wp-content/uploads/2017/06/18-220x197.png',
+    title:'Game & Console'
+  },
+  {
+    logo:'https://demo2.chethemes.com/techmarket/wp-content/uploads/2017/06/19-220x197.png',
+title:'Headphones'
+  },
+  {
+    logo:'https://demo2.chethemes.com/techmarket/wp-content/uploads/2017/06/11-220x197.png',
+    title:'Home Entertainment'
+  },
+  {
+    logo:'https://demo2.chethemes.com/techmarket/wp-content/uploads/2017/06/11-220x197.png',
+    title:'Audio'
+  },
+  {
+    logo:'https://demo2.chethemes.com/techmarket/wp-content/uploads/2017/06/3-220x197.png',
+    title:'Laptop'
+  },
+  {
+    logo:'https://demo2.chethemes.com/techmarket/wp-content/uploads/2017/06/6-220x197.png',
+    title:'Mac Computers'
+  }
+]
