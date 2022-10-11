@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import Banner from "../components/banner/banner";
 import styles from "../styles/home.module.css";
+import feature from "../styles/feature.module.css";
 import logo from "../public/img.jpg";
 import Image from "next/image";
 import { RiArrowDropRightLine } from "react-icons/ri";
@@ -12,8 +13,10 @@ import DealsTabs from "../components/weeklyDealTabs/DealsTabs";
 import OurServices from "../components/ourService/ourServices";
 import BannerWithCards from "../components/bannerWithCards/bannerWithCards";
 
+
 const Home: NextPage = () => {
   const [count, setCount] = useState(0);
+  const [featureSlide, setfeatureSlide] = useState(0);
 
   return (
     <>
@@ -42,6 +45,23 @@ const Home: NextPage = () => {
       </div>
       <OurServices />
       <BannerWithCards/>
+      <div className={feature.section_feature}>
+        <div className={feature.left_box}>
+          <div className={feature.header}>
+            <span>Featured</span>
+            <h2 className={feature.section_title}>
+              Top categories <br />
+              this week
+            </h2>
+          </div>
+          <div>
+            <button className={feature.btn}>prev</button>
+            <button className={feature.btn}>next</button>
+          </div>
+          <p className={feature.footer_para}>Full catalog</p>
+        </div>
+        <div className={feature.right_box}></div>
+      </div>
     </>
   );
 };
