@@ -16,8 +16,9 @@ export default function navigationBar() {
           <Image src={logo} className={styles.logo} />
         </div>
         <div className={styles.navigationItems}>
-          {navigationItems.map((ele, key) => (
+          {navigationItems.map((navigationItem, key) => (
             <p
+              key={key}
               onClick={() => {
                 setOpenDrawer(!openDrawer);
               }}
@@ -31,8 +32,9 @@ export default function navigationBar() {
                 var timeOutid = setTimeout(() => {
                   setCurrentHovered(null);
                   setOpenDrawer(false);
-                }, 1000);
+                }, 1000);            
                 setTimeoutId(timeOutid);
+
               }}
             >
               {openDrawer && currentHovered == key && (
@@ -41,7 +43,7 @@ export default function navigationBar() {
                   timeOutId={timeOutId}
                 />
               )}
-              {ele}
+              {navigationItem}
             </p>
           ))}
         </div>

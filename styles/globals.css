@@ -27,3 +27,16 @@ a {
     background: black;
   }
 } */
+
+.mediumIcon{
+  font-size: 2rem;
+}
+.smallIcon{
+  font-size: 1.2rem;
+}
+.largeIcon{
+  font-size: 2.4rem;
+}
+.icon{
+  cursor: pointer;
+}
