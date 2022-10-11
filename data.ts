@@ -120,7 +120,7 @@ export const PRODUCT = [
   
 
 export const allDepartments=[
-  "Top 100 offers",
+"Top 100 offers",
   "New arrivals",
   "Top 100 offers",
   "New arrivals",
@@ -132,4 +132,15 @@ export const allDepartments=[
   "New arrivals",
   "Top 100 offers",
   "New arrivals",
+]
+
+export const footerItems = [
+  "Computers & Laptops",
+  "Computers & Laptops",
+  "Computers & Laptops",
+  "Computers & Laptops",
+  "Computers & Laptops",
+  "Computers & Laptops",
+  "Computers & Laptops",
+  "Computers & Laptops",
 ]
