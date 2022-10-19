@@ -32,7 +32,7 @@ const login = () => {
               required
             />
           </div>
-          {/* <div className={styles.Container__form2}>
+          <div className={styles.Container__form2}>
             <label className={styles.label}>Enter your Otp:</label>
             <input
               type="text"
@@ -42,7 +42,7 @@ const login = () => {
               name="otp"
               required
             />
-          </div> */}
+          </div>
           {/* <button className={styles.Container__formBtn}>
             <div>Get Otp</div>
           </button> */}
