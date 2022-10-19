@@ -5,9 +5,9 @@ import Header from "../header/header";
 const layout = ({ children }:any) => {
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       {children}
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };
