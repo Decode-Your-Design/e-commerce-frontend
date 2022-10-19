@@ -118,6 +118,9 @@ export const PRODUCT = [
   },
 ];
 
+// export const allDepartments=[
+// "Top 100 offers",
+// ]
 export const CATEGORY = [
   {
     logo: "https://demo2.chethemes.com/techmarket/wp-content/uploads/2017/06/8-220x197.png",
@@ -181,5 +184,18 @@ export const allDepartments = [
   "New arrivals",
   "Top 100 offers",
   "New arrivals",
-];
+]
+
+export const footerItems = [
+  "Computers & Laptops",
+  "Computers & Laptops",
+  "Computers & Laptops",
+  "Computers & Laptops",
+  "Computers & Laptops",
+  "Computers & Laptops",
+  "Computers & Laptops",
+  "Computers & Laptops",
+]
+
+
 

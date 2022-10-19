@@ -4,12 +4,14 @@ import styles from "../styles/home.module.css";
 import feature from "../styles/feature.module.css";
 import logo from "../public/img.jpg";
 import Image from "next/image";
-import {RiArrowDropRightLine} from 'react-icons/ri'
-import {RiArrowDropLeftLine} from 'react-icons/ri'
+import { RiArrowDropRightLine } from "react-icons/ri";
+import { RiArrowDropLeftLine } from "react-icons/ri";
 import { DEALS } from "../data";
 import { useEffect, useState } from "react";
 import DealsSlider from "../components/weeklyDealSlider/dealsSlider";
 import DealsTabs from "../components/weeklyDealTabs/DealsTabs";
+import OurServices from "../components/ourService/ourServices";
+import BannerWithCards from "../components/bannerWithCards/bannerWithCards";
 
 
 const Home: NextPage = () => {
@@ -25,10 +27,10 @@ const Home: NextPage = () => {
             <h2 className={styles.section_title}>
               <strong>Deals</strong> of the week
             </h2>
-            <div>            <RiArrowDropLeftLine color="gray" className="largeIcon icon" />
-            <RiArrowDropRightLine  color="gray" className="largeIcon icon"/>
+            <div>
+              <RiArrowDropLeftLine color="gray" className="largeIcon icon" />
+              <RiArrowDropRightLine color="gray" className="largeIcon icon" />
             </div>
-
           </div>
           <DealsSlider
             deals={DEALS}
@@ -41,6 +43,8 @@ const Home: NextPage = () => {
           <DealsTabs />
         </div>
       </div>
+      <OurServices />
+      <BannerWithCards/>
       <div className={feature.section_feature}>
         <div className={feature.left_box}>
           <div className={feature.header}>
