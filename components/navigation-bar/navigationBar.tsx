@@ -13,7 +13,7 @@ export default function navigationBar() {
     <>
       <div className={styles.navigationContainer}>
         <div className={styles.logoDiv}>
-          <Image src={logo} className={styles.logo} />
+          <img src="https://graphicsfamily.com/wp-content/uploads/edd/2021/07/Free-Car-Logo-Design-Source-PNG-Transparent.png" className={styles.logo} />
         </div>
         <div className={styles.navigationItems}>
           {navigationItems.map((navigationItem, key) => (

@@ -54,16 +54,16 @@ export default function Unknown() {
           0
         </div>
         </div>
-        <div className={styles.badge}>
+        {/* <div className={styles.badge}>
         <RiShoppingCartLine className="icon mediumIcon"  />
         <div  >
           0
         </div>
-        </div>
-        <div className={styles.cartAmount} >
+        </div> */}
+        {/* <div className={styles.cartAmount} >
           <span>Your cart</span>
           <p>$0.00</p>
-        </div>
+        </div> */}
       </div>
     </div>
   );

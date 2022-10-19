@@ -20,7 +20,7 @@ export default function bannerWithCards() {
             setShowAddToWishListIcon()
         }}
         className={styles.card} >
-            <img src="https://demo2.chethemes.com/techmarket/wp-content/uploads/2017/02/samsung-ue-ks9000_1_720x660-224x197.jpg" />
+            <img src="https://www.freepnglogos.com/uploads/mercedes-png/mercedes-amg-car-png-image-pngpix-9.png" />
             <div className={styles.productDetail} >
 
 {

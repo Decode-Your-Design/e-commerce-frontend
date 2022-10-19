@@ -25,7 +25,7 @@ const Home: NextPage = () => {
         <div className={styles.left_box}>
           <div className={styles.header}>
             <h2 className={styles.section_title}>
-              <strong>Deals</strong> of the week
+              <strong>Deals </strong><span style={{marginLeft:"0.2rem"}} > of the week </span>
             </h2>
             <div>
               <RiArrowDropLeftLine color="gray" className="largeIcon icon" />

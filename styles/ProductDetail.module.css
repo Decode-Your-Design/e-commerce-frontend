@@ -1,0 +1,151 @@
+.renders{
+    color: red;
+}
+.container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 95vw;
+    margin: 1rem auto;
+    height: auto;
+    background-color: #f9f9f9;
+    position: relative;
+    z-index: -2;
+}
+/* images section  */
+.imageSection{
+    padding: 1rem 3rem;
+    display: flex;
+    position: sticky;
+    top: 100;
+    /* border: 1px solid red; */
+}
+.productImage{
+    width: 80%;
+margin-left: auto;
+    height: auto;
+}
+.productImage>img{
+    width: 100%;
+    height: 30rem;
+}
+
+.productExtraImages{
+    height: 5rem;
+    width: 5rem;
+    margin: 2rem 0;
+    cursor: pointer;
+    
+}
+.productExtraImages>img{
+    width: 100%;
+    /* height: auto; */
+    object-fit: contain;
+}
+/* product data csss  */
+
+.productData{
+/* box-shadow: 1px 1px 7px black; */
+border-radius: 0.6rem;
+
+padding: 1rem;
+height: auto;
+}
+.productData>h1{
+    font-weight: 600;
+    font-size: 3rem;
+    margin: 0;
+}
+.productData>span{
+margin-left: 0.5rem;
+}
+.actualPrice{
+    margin: 0px 0.7rem;
+    font-size: 1.8rem;
+    color: gray;
+    text-decoration: line-through;
+
+}
+.offerPrice{
+font-size: 2rem;
+}
+
+.discount{
+    font-weight: bold;
+    color: green;
+    font-size: 2rem;
+}
+.ratingDiv{
+    background-color: green;
+    width: auto;
+    padding: 0.2rem 0.6rem;
+    border-radius: 0.3rem;
+    display: inline-flex;
+    align-items: center;
+    color: white;
+}
+
+
+/* Attribute section  */
+
+.attributeSection{
+
+/* box-shadow: 1px 1px 7px black; */
+margin: 0rem 0;
+
+border-radius: 0.6rem;
+
+padding: 1rem;
+
+}
+.sizeAttributes{
+    display: flex;
+    align-items: center;
+}
+.attributeDiv{
+    margin: 0 1rem;
+    /* border: 1px solid gray; */
+    box-shadow: 1px 1px 10px gray;
+    padding: 0rem 3rem;
+    cursor: pointer;
+    
+}
+.attributeDiv:hover{
+    /* background-color: #f1613a; */
+    /* color: white; */
+
+}
+
+.colorattributeDiv{
+width: 1.5rem ;
+height: 1.5rem;
+border-radius: 100%;
+background-color: #f1613a;
+cursor: pointer;
+margin: 0rem 0.5rem;
+}
+
+
+/* Buttons section */
+.buttonsSection{
+    display: flex;
+    justify-content: space-between;
+}
+.button{
+    background-color: #f1613a;
+    flex: 1;
+    padding: 1.5rem 4rem ;
+    border: none;
+    color: white;
+    margin: 1rem 0.8rem;
+    cursor: pointer;
+}
+
+.dropdown{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+background-color: white;
+    padding: 0.8rem;
+    border-radius: 1rem;
+    box-shadow: 1px 1px 10px grey;
+}

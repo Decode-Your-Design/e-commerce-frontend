@@ -23,98 +23,138 @@ export const DEALS = [
   {
     tab: 1,
     price: 400,
-    title: "Tablet Red EliteBook Revolve",
-    logo: "https://demo2.chethemes.com/techmarket/wp-content/uploads/2017/02/GamePad-224x197.jpg",
+    title: "Activa 5g",
+    logo: "https://static.autox.com/uploads/2018/10/Honda-Activa-5G-Image-Gallery-5-.jpg",
   },
   {
     price: 200,
-    title: "Yoga 3 1470 Ultrabook White – Core i7",
-    logo: "https://demo2.chethemes.com/techmarket/wp-content/uploads/2017/02/ZenBook-224x197.jpg",
+    title: "Maestro",
+    logo: "https://imgd.aeplcdn.com/1056x594/n/cw/ec/50118/hero-maestro-edge-front-three-quarter7.jpeg?q=75",
   },
   {
     price: 400,
-    title: "Tablet Red EliteBook Revolve",
-    logo: "https://demo2.chethemes.com/techmarket/wp-content/uploads/2017/02/watch-7_720x660-224x197.jpg",
+    title: "i10",
+    logo: "https://static.autox.com/uploads/2020/03/Maruti-Suzuki-Dzire-Image-3-.jpg",
   },
   {
-    price: 600,
-    title: "Instax Mini 90 Camera with 4K Video Recording",
-    logo: "https://demo2.chethemes.com/techmarket/wp-content/uploads/2017/02/Instax-224x197.jpg",
+    price: 400,
+    title: "i10",
+    logo: "https://static.autox.com/uploads/2020/03/Maruti-Suzuki-Dzire-Image-3-.jpg",
   },
+
 ];
 
 export const PRODUCT = [
   {
     tab: 1,
     price: 200,
-    title: "Yoga 3 1470 Ultrabook White – Core i7",
-    logo: "https://demo2.chethemes.com/techmarket/wp-content/uploads/2017/02/Laptop-224x197.jpg",
+    title: "Activa 5G",
+    logo: "https://static.autox.com/uploads/2018/10/Honda-Activa-5G-Image-Gallery-5-.jpg",
   },
   {
     tab: 1,
     price: 400,
-    title: "Tablet Red EliteBook Revolve",
-    logo: "https://demo2.chethemes.com/techmarket/wp-content/uploads/2017/02/ActionCamera-224x197.jpg",
+    title: "Pleasure",
+    logo: "https://media.zigcdn.com/media/content/2021/Oct/229219504-heropleasureplusxtecb_720x540.jpg",
   },
   {
     tab: 1,
     price: 400,
-    title: "Tablet Red EliteBook Revolve",
-    logo: "https://demo2.chethemes.com/techmarket/wp-content/uploads/2017/02/Earphones-224x197.jpg",
+    title: "Pleasure",
+    logo: "https://media.zigcdn.com/media/content/2021/Oct/229219504-heropleasureplusxtecb_720x540.jpg",
   },
   {
     tab: 1,
     price: 400,
-    title: "Tablet Red EliteBook Revolve",
-    logo: "https://demo2.chethemes.com/techmarket/wp-content/uploads/2017/02/GamePad-224x197.jpg",
+    title: "Pleasure",
+    logo: "https://imgd.aeplcdn.com/1056x594/n/cw/ec/50118/hero-maestro-edge-front-three-quarter7.jpeg?q=75",
+  },
+  {
+    tab: 1,
+    price: 400,
+    title: "Pleasure",
+    logo: "https://imgd.aeplcdn.com/1056x594/n/cw/ec/50118/hero-maestro-edge-front-three-quarter7.jpeg?q=75",
   },
   {
     tab: 2,
     price: 600,
-    title: "Instax Mini 90 Camera with 4K Video Recording",
-    logo: "https://demo2.chethemes.com/techmarket/wp-content/uploads/2017/02/samsung-ue-ks9000_1_720x660-224x197.jpg",
+    title: "Swift Desize",
+    logo: "https://static.autox.com/uploads/2020/03/Maruti-Suzuki-Dzire-Image-3-.jpg",
   },
   {
     tab: 2,
     price: 600,
-    title: "Instax Mini 90 Camera with 4K Video Recording",
-    logo: "https://demo2.chethemes.com/techmarket/wp-content/uploads/2017/02/tv-33_720x660-224x197.jpg",
+    title: "Swift Desize",
+    logo: "https://static.autox.com/uploads/2020/03/Maruti-Suzuki-Dzire-Image-3-.jpg",
   },
   {
     tab: 2,
     price: 600,
-    title: "Instax Mini 90 Camera with 4K Video Recording",
-    logo: "https://demo2.chethemes.com/techmarket/wp-content/uploads/2017/02/in-full-hd-k5700-ua32k5570aulxl-004-l-perspective-black_720x660-224x197.jpg",
+    title: "Swift Desize",
+    logo: "https://static.autox.com/uploads/2020/03/Maruti-Suzuki-Dzire-Image-3-.jpg",
   },
   {
     tab: 2,
     price: 600,
-    title: "Instax Mini 90 Camera with 4K Video Recording",
-    logo: "https://demo2.chethemes.com/techmarket/wp-content/uploads/2017/02/ledTv-1_720x660-224x197.jpg",
+    title: "Swift Desize",
+    logo: "https://static.autox.com/uploads/2020/03/Maruti-Suzuki-Dzire-Image-3-.jpg",
+  },
+  {
+    tab: 2,
+    price: 600,
+    title: "Swift Desize",
+    logo: "https://static.autox.com/uploads/2020/03/Maruti-Suzuki-Dzire-Image-3-.jpg",
+  },
+  {
+    tab: 2,
+    price: 600,
+    title: "Swift Desize",
+    logo: "https://static.autox.com/uploads/2020/03/Maruti-Suzuki-Dzire-Image-3-.jpg",
+  },
+
+
+
+  {
+    tab: 3,
+    price: 600,
+    title: "Splendor ",
+    logo: "https://imgd.aeplcdn.com/1056x594/n/bw/models/colors/undefined-black-with-silver-1587733460574.jpg?q=75",
   },
   {
     tab: 3,
     price: 600,
-    title: "Instax Mini 90 Camera with 4K Video Recording",
-    logo: "https://demo2.chethemes.com/techmarket/wp-content/uploads/2017/02/PortableSpeaker-224x197.jpg",
+    title: "Glamour",
+    logo: "https://imgd.aeplcdn.com/0x0/n/bw/models/colors/hero-select-model-candy-blazing-red-1659439619806.gif",
   },
   {
     tab: 3,
     price: 600,
-    title: "Instax Mini 90 Camera with 4K Video Recording",
-    logo: "https://demo2.chethemes.com/techmarket/wp-content/uploads/2017/02/Speaker-224x197.jpg",
+    title: "Royal Enfield",
+    logo: "https://w7.pngwing.com/pngs/343/157/png-transparent-royal-enfield-bullet-car-royal-enfield-classic-motorcycle-car-car-motorcycle-vehicle.png",
   },
   {
     tab: 3,
     price: 600,
-    title: "Instax Mini 90 Camera with 4K Video Recording",
-    logo: "https://demo2.chethemes.com/techmarket/wp-content/uploads/2017/02/Instax-224x197.jpg",
+    title: "Royal Enfield",
+    logo: "https://w7.pngwing.com/pngs/343/157/png-transparent-royal-enfield-bullet-car-royal-enfield-classic-motorcycle-car-car-motorcycle-vehicle.png",
   },
   {
     tab: 3,
     price: 600,
-    title: "Instax Mini 90 Camera with 4K Video Recording",
-    logo: "https://demo2.chethemes.com/techmarket/wp-content/uploads/2017/02/Instax-224x197.jpg",
+    title: "Royal Enfield",
+    logo: "https://w7.pngwing.com/pngs/343/157/png-transparent-royal-enfield-bullet-car-royal-enfield-classic-motorcycle-car-car-motorcycle-vehicle.png",
+  },
+  {
+    tab: 3,
+    price: 600,
+    title: "Royal Enfield",
+    logo: "https://w7.pngwing.com/pngs/343/157/png-transparent-royal-enfield-bullet-car-royal-enfield-classic-motorcycle-car-car-motorcycle-vehicle.png",
+  },
+  {
+    tab: 3,
+    price: 600,
+    title: "Royal Enfield",
+    logo: "https://w7.pngwing.com/pngs/343/157/png-transparent-royal-enfield-bullet-car-royal-enfield-classic-motorcycle-car-car-motorcycle-vehicle.png",
   },
 ];
 
@@ -184,7 +224,7 @@ export const allDepartments = [
   "New arrivals",
   "Top 100 offers",
   "New arrivals",
-]
+];
 
 export const footerItems = [
   "Computers & Laptops",
@@ -195,7 +235,4 @@ export const footerItems = [
   "Computers & Laptops",
   "Computers & Laptops",
   "Computers & Laptops",
-]
-
-
-
+];

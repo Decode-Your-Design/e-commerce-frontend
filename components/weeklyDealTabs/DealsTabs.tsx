@@ -15,21 +15,21 @@ const DealsTabs = () => {
           onClick={() => toggleTab(1)}
           className={toggleState === 1 ? styles.activeTabs : styles.tabsBtn}
         >
-          New Arrivals
+          Scooty
         </button>
         <span className={styles.footer_span}>|</span>
         <button
           onClick={() => toggleTab(2)}
           className={toggleState === 2 ? styles.activeTabs : styles.tabsBtn}
         >
-          On Sale
+          Cars
         </button>
         <span className={styles.footer_span}>|</span>
         <button
           onClick={() => toggleTab(3)}
           className={toggleState === 3 ? styles.activeTabs : styles.tabsBtn}
         >
-          Best Rated
+          Bikes
         </button>
       </div>
       <div className={styles.productList}>

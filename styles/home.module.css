@@ -87,6 +87,10 @@
   justify-self: center;
   align-self: center;
 }
+.logo>img{
+  width: 400px;
+  height: 400px;
+}
 .tabs {
   display: flex;
   border-bottom: 1px solid #ebebeb;
