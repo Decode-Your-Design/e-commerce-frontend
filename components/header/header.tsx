@@ -7,14 +7,14 @@ import { headerItems } from "../../data";
 export default function header() {
   return (
     <>
-      <div className={styles.headerContainer}>
+      {/* <div className={styles.headerContainer}>
         {headerItems.map((ele) => (
           <>
             <p>{ele}</p>
             <span>|</span>
           </>
         ))}
-      </div>
+      </div> */}
       <NavigationBar />
       {/* <Unknown /> */}
     </>

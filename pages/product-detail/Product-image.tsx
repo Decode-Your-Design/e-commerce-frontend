@@ -1,13 +1,15 @@
 import React, { useState } from 'react' 
+import { appContext } from '../../context/appContext'
 import styles from '../../styles/ProductDetail.module.css' 
 
 
 export default function ProductImage() { 
+    const {backgroundColor,setBackgroundColor,openToastify,setOpenToastify,toastifyStyle,setToastifyStyle} = React.useContext(appContext)
     const images = [
-        "https://m.media-amazon.com/images/I/51kmj7UCNDL._UX569_.jpg",
-        "https://cdn.pixabay.com/photo/2022/06/21/22/48/flower-7276636__340.jpg",
-        "https://cdn.pixabay.com/photo/2022/08/22/19/07/mountains-7404367__340.jpg",
-        "https://cdn.pixabay.com/photo/2022/09/05/10/36/grey-seal-7433843__340.jpg",
+        "https://static.autox.com/uploads/2018/10/Honda-Activa-5G-Image-Gallery-5-.jpg",
+        "https://static.autox.com/uploads/2018/10/Honda-Activa-5G-Image-Gallery-3-.jpg",
+        "https://cdn.autoportal.com/bp-v3/img/models/9c/6/honda-activa-5g-1522148835.png",
+        // "https://cdn.pixabay.com/photo/2022/09/05/10/36/grey-seal-",
 
     ]
     const [currentImage,setCurrentImage] = useState(0)
@@ -34,10 +36,10 @@ export default function ProductImage() {
              <img  src={images[currentImage]}  />
              
              <div className={styles.buttonsSection} >
-<button style={{backgroundColor:"red"}} className={styles.button} >
+{/* <button style={{backgroundColor:"red"}} className={styles.button} >
     Add To Cart
-</button>
-<button className={styles.button}>
+</button> */}
+<button style={{cursor:"pointer"}} className={styles.button}>
     Add To Wishlist
 </button>
         </div>

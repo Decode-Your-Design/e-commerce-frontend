@@ -1,5 +1,7 @@
+import { useRouter } from "next/router";
 import styles from "../../styles/home.module.css";
 const DealsSlider = ({ deals, next, prev, currentSlide }:any) => {
+  const router = useRouter()
   return (
     <>
       <div className={styles.slider}>
@@ -12,7 +14,10 @@ const DealsSlider = ({ deals, next, prev, currentSlide }:any) => {
           </p>
         </div>
         <div className={styles.logo}>
-          <img src={deals[currentSlide] && deals[currentSlide].logo} />
+          <img
+          style={{cursor:'pointer'}}
+          onClick={()=>router.push('./product-detail')}
+          src={deals[currentSlide] && deals[currentSlide].logo} />
         </div>
       </div>
       <div className={styles.footer}>

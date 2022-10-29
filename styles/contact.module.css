@@ -1,24 +1,24 @@
-.loginSection{
+.contactSection{
   display: flex;
   width: 100%;
   margin-top: 3rem;
 
 }
 .imageDiv{
-  background-image: url("https://img.freepik.com/free-vector/mobile-login-concept-illustration_114360-135.jpg?w=2000");
+  background-image: url("https://img.freepik.com/premium-photo/concept-contact-us-blank-wooden-cubes-square-dice-with-symbol-email-telephone-address-placed-wood-background_44868-1254.jpg?w=2000");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   flex: 1;
   height: 70vh;
 }
-.loginFields{
+.contactFields{
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.loginFields>h1{
+.contactFields>h1{
   color:#333333;
   margin-bottom: 0.5rem;
 }
@@ -31,7 +31,7 @@
   width: 70%;
   font-size: 1.4rem;
 }
-.loginSignupButton{
+.contactSignupButton{
   background-color: #0063d1;
   padding: 1rem;
   width: 50%;

@@ -32,7 +32,7 @@ const DealsTabs = () => {
           Bikes
         </button>
       </div>
-      <div className={styles.productList}>
+      <div  className={styles.productList}>
         {PRODUCT.map((item,index) => (
           <ProductCard item={item} toggleState={toggleState} className={toggleState === index ? styles.content : styles.noContent}/>
         ))}

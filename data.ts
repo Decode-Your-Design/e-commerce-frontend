@@ -1,9 +1,17 @@
 export const navigationItems = [
-  "Super deals",
-  "Mother's day",
-  "Pages",
-  "Logitech Sale",
-  "Headphone Sale",
+  {
+    title:"Home",url:"/",
+
+  },
+  {
+    title:"About us" ,url:"about-us",
+  },
+  {
+    title:"Contact" ,url:"contact-us",
+  }
+
+  // "Login",
+  // "Headphone Sale",
 ];
 export const headerItems = [
   "Tech market ecommerce",
@@ -227,12 +235,7 @@ export const allDepartments = [
 ];
 
 export const footerItems = [
-  "Computers & Laptops",
-  "Computers & Laptops",
-  "Computers & Laptops",
-  "Computers & Laptops",
-  "Computers & Laptops",
-  "Computers & Laptops",
-  "Computers & Laptops",
-  "Computers & Laptops",
+"Bikes",
+"Cars",
+"Scooties"
 ];

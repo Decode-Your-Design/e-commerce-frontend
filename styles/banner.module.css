@@ -52,23 +52,23 @@
 @keyframes headingAnimation {
   0% {
     opacity: 0;
-    transform: translateX(20%);
+    transform: translateY(20%);
   }
 
   100% {
     opacity: 1;
-    transform: translateX(0%);
+    transform: translateY(0%);
   }
 }
 @keyframes subheadingAnimation {
   0% {
     opacity: 0;
-    transform: translateX(20%);
+    transform: translateY(30%);
   }
 
   100% {
     opacity: 1;
-    transform: translateX(0%);
+    transform: translateY(0%);
   }
 }
 @keyframes buttonAnimation {

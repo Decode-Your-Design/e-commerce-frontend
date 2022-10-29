@@ -42,7 +42,7 @@ const footer = () => {
         </div>
       </div>
       <div className={styles.copyright}>
-        <p>Copyright decode your design</p>
+        <p>Copyright Gaadidekho </p>
         <p>Made by Gourav and max</p>
       </div>
     </>

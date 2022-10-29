@@ -17,19 +17,21 @@ export default function ProductData() {
   return (
     <div style={{padding:"1rem"}} >
     <div className={styles.productData} >
-        <h1>
-            Tshirt for man
+        <h1
+        onClick={()=>console.log("hari om")}
+        >
+            Activa 5g
         </h1>
-       <span className={styles.ratingDiv} >
+       {/* <span className={styles.ratingDiv} >
         4.6
         <Image style={{filter:"invert(1)"}} width="15px"  height="15px" src={star} />
-       </span>
-       <span>
+       </span> */}
+       {/* <span>
         44 rating
        </span>
        <span>
 22 reviews
-       </span>
+       </span> */}
         <p>
             <span className={styles.offerPrice}>
             ₹100
@@ -42,13 +44,13 @@ export default function ProductData() {
             </span>
         </p>
         <span>
-            This are best quality t shirts 
+            This are best quality vehicles
         </span>
     </div>
 {/* Attributes div   */}
 <div>
     <div className={styles.attributeSection}>
-        <h1> Size:</h1>
+        {/* <h1> Size:</h1>
         <div  className={styles.sizeAttributes} >
         {
             [0,1,2].map(()=>(
@@ -59,19 +61,19 @@ export default function ProductData() {
                     </div>
             ))
         }
-        </div>
-        <h1>Color:</h1>
-        <div  className={styles.sizeAttributes} >
+        </div> */}
+        <h1>Color:  Yellow</h1>
+        {/* <div  className={styles.sizeAttributes} >
         {
             [0,1,2].map(()=>(
                 <div style={{backgroundColor:getColorCode()}}   className={styles.colorattributeDiv} >
                     </div>
             ))
         }
-        </div>
+        </div> */}
     </div>
 </div>
-<div className={styles.dropdown} >
+{/* <div className={styles.dropdown} >
     <p>
 
 Product Detail
@@ -79,14 +81,28 @@ Product Detail
     {
         arrowDown ?
     <Image
+    // style={{cursor:"pointer"}}
     onClick={()=>setArrowDown(true)}
     width="30px" height="30px" src={downArrow} />
     :
     <Image
+    // style={{cursor:"pointer"}}
     onClick={()=>setArrowDown(false)}
     width="30px" height="30px" src={upArrow} />
 }
+</div> */}
+{
+    arrowDown &&
+
+<div style={{backgroundColor:"white",boxShadow:"2px 2px 10px gray",padding:"2rem",borderRadius:"1rem",marginTop:"0.3rem"}} >
+    These are the best qualities products you can get
+    These are the best qualities products you can get
+    These are the best qualities products you can get
+    These are the best qualities products you can get
+    These are the best qualities products you can get
+    These are the best qualities products you can get
 </div>
+}
     </div>
   )
 }

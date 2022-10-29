@@ -1,8 +1,10 @@
 import React from 'react'
 import styles from '../../styles/bannerWithCard.module.css'
 import {RiHeart3Line} from 'react-icons/ri'
+import { useRouter } from 'next/router'
 import {useState} from 'react'
 export default function bannerWithCards() {
+    const router = useRouter()
     const [showAddToWishListIcon,setShowAddToWishListIcon] = useState()
   return (
     <div
@@ -12,6 +14,7 @@ export default function bannerWithCards() {
 {
     [0,1,2,3].map((card,key)=>(
         <div
+        onClick={()=>router.push('/productdetail')}
         style={{boxShadow:showAddToWishListIcon==key ? '2px 2px 10px gray' :'2px 2px 10px white'}}
         onMouseOver={()=>{
             setShowAddToWishListIcon(key)
@@ -20,7 +23,7 @@ export default function bannerWithCards() {
             setShowAddToWishListIcon()
         }}
         className={styles.card} >
-            <img src="https://www.freepnglogos.com/uploads/mercedes-png/mercedes-amg-car-png-image-pngpix-9.png" />
+            <img src="https://static.autox.com/uploads/2018/10/Honda-Activa-5G-Image-Gallery-5-.jpg" />
             <div className={styles.productDetail} >
 
 {

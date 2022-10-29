@@ -1,8 +1,13 @@
 import styles from "../../styles/home.module.css";
+import { useRouter } from "next/router";
 const ProductCard = ({ item,toggleState}: any) => {
+  const router = useRouter()
   return (
     <div className={toggleState === item.tab? styles.content : styles.noContent}>
-      <div className={styles.card}>
+      <div 
+      style={{cursor:"pointer"}}
+      onClick={()=>router.push('/product-detail')}
+      className={styles.card}>
         <img className={styles.productLogo} src={item.logo} alt="" />
         <div
           className={styles.price}

@@ -6,7 +6,7 @@ export default function BreadCrumb() {
       <p>
         <span>Home</span>
         <span>/</span>
-        <span>Best t shirt</span>
+        <span>Activa 5g</span>
       </p>
     </div>
   )

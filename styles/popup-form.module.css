@@ -1,0 +1,43 @@
+.productAddEditSection{
+    background-color: white;
+    box-shadow: 2px 2px 10px gray;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 70vw;
+    transform: translate(-50%,-50%);
+    /* transform: translateX(-50%); */
+    z-index: 20;
+    padding: 2rem;
+
+}
+.addUpdateButton{
+
+        border-radius: 0.3rem;
+        background-color: #e91e63;
+        padding: 0.5rem 3rem;
+        border: none;
+        color: white;
+        fontSize: 1.2rem;
+        marginLeft: 0.5rem;
+        margin-top: 1rem;
+        float: right;
+        cursor: pointer;
+
+}
+.closeIcon{
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    font-size: 2rem;
+    cursor: pointer;
+}
+.productAddEditInput{
+    border-radius: 0.4rem;
+    box-shadow: 2px 2px 10px gray;
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    border: none;
+    width: 100%;
+    font-size: 1rem;
+}
