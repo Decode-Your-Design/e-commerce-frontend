@@ -109,6 +109,16 @@ export default function navigationBar() {
             Add vendor
           </button>
          
+          <button
+            onClick={() => {
+              router.push("/vendor-list");
+              // setOpenDrawer(!openDrawer);
+            }}
+            className={styles.headerButton}
+          >
+             Vendor List
+          </button>
+         
         
   
           

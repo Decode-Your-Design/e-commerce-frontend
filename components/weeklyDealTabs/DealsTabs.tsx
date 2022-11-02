@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import { useState } from "react";
 import { PRODUCT } from "../../data";
 import styles from "../../styles/home.module.css";
@@ -5,38 +6,58 @@ import ProductCard from "../weeklyDealProduct/ProductCard";
 const DealsTabs = () => {
   const [toggleState, setToggleState] = useState(1);
 
-  const toggleTab = (index: any) => {
-    setToggleState(index);
-  };
+const [currentTab,setCurrentTab] = useState("Scooty")
+  const vehicleTabs =[
+    {heading:"Scooty",url:"scooty"},
+
+    {
+      heading:"Cars",url:"cars"
+    }
+    ,    {
+      heading:"Bikes",url:"bikes"
+    },
+  ]
+  const toggleTab  = (index:any)=>{
+    setToggleState(index)
+  }
+  const router = useRouter()
   return (
     <>
       <div className={styles.tabs}>
-        <button
-          onClick={() => toggleTab(1)}
-          className={toggleState === 1 ? styles.activeTabs : styles.tabsBtn}
+ {
+  vehicleTabs.map((vehicleType,key)=>(
+<>
+<button
+          onClick={() => {
+            toggleTab(key+1)
+            setCurrentTab(vehicleType.heading)
+          }
+          }
+          className={toggleState === key+1 ? styles.activeTabs : styles.tabsBtn}
         >
-          Scooty
+          {vehicleType.heading}
         </button>
         <span className={styles.footer_span}>|</span>
-        <button
-          onClick={() => toggleTab(2)}
-          className={toggleState === 2 ? styles.activeTabs : styles.tabsBtn}
-        >
-          Cars
-        </button>
-        <span className={styles.footer_span}>|</span>
-        <button
-          onClick={() => toggleTab(3)}
-          className={toggleState === 3 ? styles.activeTabs : styles.tabsBtn}
-        >
-          Bikes
-        </button>
+        
+        </>
+  )
+  )
+ }
+ 
+   
       </div>
       <div  className={styles.productList}>
         {PRODUCT.map((item,index) => (
           <ProductCard item={item} toggleState={toggleState} className={toggleState === index ? styles.content : styles.noContent}/>
         ))}
       </div>
+        <button
+   onClick={()=>{
+    router.push(`/all-products/${currentTab}`)
+   }}
+        className={styles.viewAllButton} >
+          View All
+        </button>
     </>
   );
 };

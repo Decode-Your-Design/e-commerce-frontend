@@ -22,7 +22,7 @@ export default function bannerWithCards() {
         onMouseLeave={()=>{
             setShowAddToWishListIcon()
         }}
-        className={styles.card} >
+        className={styles.card} >z
             <img src="https://static.autox.com/uploads/2018/10/Honda-Activa-5G-Image-Gallery-5-.jpg" />
             <div className={styles.productDetail} >
 
