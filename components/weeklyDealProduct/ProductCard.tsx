@@ -3,23 +3,24 @@ import { useRouter } from "next/router";
 const ProductCard = ({ item,toggleState}: any) => {
   const router = useRouter()
   return (
-    <div className={toggleState === item.tab? styles.content : styles.noContent}>
+    <div className={styles.content }>
       <div 
       style={{cursor:"pointer"}}
-      onClick={()=>router.push('/product-detail')}
+      onClick={()=>router.push(`/product-detail/${item._id}`)}
       className={styles.card}>
-        <img className={styles.productLogo} src={item.logo} alt="" />
+        <img className={styles.productLogo} src="https://imgd.aeplcdn.com/1056x594/n/cw/ec/50118/hero-maestro-edge-front-three-quarter7.jpeg?q=75" alt="" />
         <div
-          className={styles.price}
+          className={styles.actualPrice}
           style={{ fontSize: "1.2rem", justifySelf: "center" }}
         >
-          <p style={{ textAlign: "center" }}>${item.price}</p>
+          <p style={{ textAlign: "center" }}>₹{item.offerPrice}</p>
         </div>
         <div
           className={styles.title}
           style={{ fontSize: ".9rem", justifySelf: "center" }}
         >
-          <p style={{ textAlign: "center" }}>{item.title}</p>
+          {/* <p style={{ textAlign: "center" }}>{item.name}</p> */}
+          <p>{item.name.length<15 ? item.name :`${item.name.slice(0,15)}...`}</p>
         </div>
       </div>
     </div>

@@ -1,7 +1,7 @@
 .section_deals {
   display: grid;
   grid-template-columns: 0.5fr 1fr;
-  height: 85vh;
+  /* height: 85vh; */
   margin: 2rem 4rem;
 }
 .left_box {
@@ -10,7 +10,8 @@
   border-style: solid;
   border-radius: 5px;
   text-align: left;
-  padding: 1.572em 1.875em 1.715em 1.875em;
+  /* padding: 1.572em 1.875em 1.715em 1.875em; */
+  padding: 1rem;
   display: grid;
   grid-template-rows: 2.6rem 1fr 3rem;
 }
@@ -60,7 +61,7 @@
 }
 .footer_span {
   color: #dedede;
-  margin: 2rem;
+  margin: 1rem;
 }
 .footer_para {
   display: flex;
@@ -88,7 +89,7 @@
   align-self: center;
 }
 .logo>img{
-  width: 400px;
+  width: 80%;
   height: 400px;
 }
 .tabs {
@@ -98,12 +99,13 @@
 .tabsBtn {
   cursor: pointer;
   border: none;
-  font-size: 1.25em;
+  
   line-height: 2.75em;
   font-weight: 400;
   letter-spacing: -0.01em;
   color: #8a8a8a;
   padding: 0;
+  font-size: 1.1rem;
   text-align: center;
   outline: none;
   border-radius: 5px;
@@ -119,7 +121,7 @@
   border: none;
   color: #090909;
   position: relative;
-  font-size: 1.5em;
+  font-size: 1.3rem;
   line-height: 2.292em;
 }
 
@@ -140,7 +142,8 @@
   
   display: grid;
   margin-top: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  /* grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); */
+  grid-template-columns: 1fr 1fr 1fr;
 }
 .viewAllButton{
   background-color: #0275d8;
@@ -150,17 +153,19 @@
   color: white;
   padding: 1rem;
   margin: auto;
+  margin-top: 1rem;
   font-size: 1.3rem;
   cursor: pointer;
 }
 .productLogo {
-  width: 10rem;
+  width: 100%;
   justify-self: center;
   align-self: center;
   height: 10rem;
 }
 .card {
   display: grid;
+  margin-top: 1rem;
 }
 .content {
   display: block;
@@ -170,3 +175,36 @@
 }
 
 
+
+@media  screen and (max-width: 1024px) {
+.section_deals{
+  grid-template-columns: 1fr   ;
+  margin: 1rem 1rem;
+   }
+   .right_box{
+    padding: 0;
+    margin: 1rem 0;
+  }
+  }
+@media  screen and (max-width: 768px) {
+.section_deals{
+    grid-template-columns: 1fr   ;
+    
+    margin: 1rem 0.2rem;
+}
+.productList{
+  grid-template-columns: 1fr 1fr;
+}
+.right_box{
+  padding: 0;
+  margin: 1rem 0;
+}
+  }
+@media  screen and (max-width: 480px) {
+.wishlistProducts{
+    grid-template-columns: 1fr 1fr   ;
+}
+.wishlistProductCard>img{
+    height: 60%;
+}
+  }

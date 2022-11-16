@@ -7,16 +7,15 @@
     width: 95vw;
     margin: 1rem auto;
     height: auto;
-    background-color: #f9f9f9;
-    position: relative;
+    /* background-color: #f9f9f9; */
     z-index: -2;
 }
 /* images section  */
 .imageSection{
     padding: 1rem 3rem;
     display: flex;
-    position: sticky;
-    top: 100;
+    /* position: sticky; */
+    /* top: 100; */
     /* border: 1px solid red; */
 }
 .productImage{
@@ -31,7 +30,8 @@ margin-left: auto;
 
 .productExtraImages{
     height: 5rem;
-    width: 5rem;
+    width: auto;
+    max-width: 10vw;
     margin: 2rem 0;
     cursor: pointer;
     
@@ -137,7 +137,8 @@ margin: 0rem 0.5rem;
     border: none;
     color: white;
     margin: 1rem 0.8rem;
-    cursor: pointer;
+    width: 100%;
+    /* cursor: pointer !important; */
 }
 
 .dropdown{
@@ -149,3 +150,41 @@ background-color: white;
     border-radius: 1rem;
     box-shadow: 1px 1px 10px grey;
 }
+
+@media  screen and (max-width: 1024px) {
+    .container{
+        grid-template-columns: 1fr;
+    width:auto;
+    }
+      }
+    @media  screen and (max-width: 768px) {
+    .imageSection{
+ flex-direction: column-reverse;
+ align-items: center;
+    }
+    .button{
+        margin: 1rem 0;
+    }
+    .productImage{
+        /* width: 80%; */
+        width: 100%;
+    margin-left: 0;
+
+    }
+    .extraImageSection{
+        display: flex;
+        flex-direction: row;
+    }
+      }
+    @media  screen and (max-width: 480px) {
+        .container{
+            grid-template-columns: 1fr;
+        width:95vw;
+        }
+        .imageSection{
+            padding: 0;
+        }
+ .productExtraImages{
+    max-width: 20vw;
+ }
+      }

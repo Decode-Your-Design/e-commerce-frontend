@@ -45,3 +45,25 @@ margin-top: 2rem;
 .priceSection>h3{
     margin-top: 0.4rem !important;
 }
+
+
+@media  screen and (max-width: 1024px) {
+.wishlistProducts{
+    grid-template-columns: 1fr 1fr 1fr }
+  }
+@media  screen and (max-width: 768px) {
+.wishlistProducts{
+    grid-template-columns: 1fr 1fr   ;
+}
+  }
+@media  screen and (max-width: 480px) {
+.wishlistProducts{
+    grid-template-columns: 1fr 1fr   ;
+}
+.wishlistProductCard{
+    margin: 1rem 0.5rem;
+}
+.wishlistProductCard>img{
+    height: 50%;
+}
+  }

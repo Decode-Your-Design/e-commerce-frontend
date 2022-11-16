@@ -9,7 +9,9 @@ setTimeout(()=>{
 },2000)
   }, [])
   
-  const {openToastify,setOpenToastify,backgroundColor,toastifyContent} = React.useContext(appContext)
+  const {openToastify,setOpenToastify} = React.useContext(appContext)
+  const backgroundColor  = sessionStorage.getItem('backgroundColor')
+  const toastifyContent = sessionStorage.getItem('toastifyContent')
   return (
 
     <div 

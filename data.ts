@@ -1,3 +1,5 @@
+// import Scooties from "./components/weeklyDealTabs/scooties";
+
 export const navigationItems = [
   {
     title:"Home",url:"/",
@@ -7,7 +9,7 @@ export const navigationItems = [
     title:"About us" ,url:"about-us",
   },
   {
-    title:"Contact" ,url:"contact-us",
+    // title:"Contact" ,url:"contact-us",s
   }
 
   // "Login",
@@ -52,7 +54,7 @@ export const DEALS = [
 
 ];
 
-export const PRODUCT = [
+export const ScootiesData = [
   {
     tab: 1,
     price: 200,
@@ -82,7 +84,10 @@ export const PRODUCT = [
     price: 400,
     title: "Pleasure",
     logo: "https://imgd.aeplcdn.com/1056x594/n/cw/ec/50118/hero-maestro-edge-front-three-quarter7.jpeg?q=75",
-  },
+  }
+]
+
+export const CarsData = [
   {
     tab: 2,
     price: 600,
@@ -119,6 +124,10 @@ export const PRODUCT = [
     title: "Swift Desize",
     logo: "https://static.autox.com/uploads/2020/03/Maruti-Suzuki-Dzire-Image-3-.jpg",
   },
+]
+export const BikesData = [
+
+
 
 
 
@@ -164,6 +173,9 @@ export const PRODUCT = [
     title: "Royal Enfield",
     logo: "https://w7.pngwing.com/pngs/343/157/png-transparent-royal-enfield-bullet-car-royal-enfield-classic-motorcycle-car-car-motorcycle-vehicle.png",
   },
+]
+export const PRODUCT = [
+
 ];
 
 // export const allDepartments=[
@@ -235,7 +247,14 @@ export const allDepartments = [
 ];
 
 export const footerItems = [
-"Bikes",
-"Cars",
-"Scooties"
+  {
+    heading:"Bike",url:"bike"
+  },
+  {
+    heading:"Car",url:"car"
+  },
+  {
+    heading:"Scooty",url:"scooty"
+  }
+
 ];

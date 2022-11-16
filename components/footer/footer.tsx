@@ -4,15 +4,21 @@ import { RiInstagramLine } from "react-icons/ri";
 import { RiFacebookFill } from "react-icons/ri";
 import { RiTwitterLine } from "react-icons/ri";
 import { RiSearchLine } from "react-icons/ri";
+import { useRouter } from "next/router";
 const footer = () => {
+  const router  = useRouter()
   return (
     <>
       <div className={styles.footer}>
-        {[0, 1,2].map(() => (
+        {[0].map(() => (
           <div className={styles.footerItems}>
             <p className={styles.footerItemHeading}>Top categories</p>
             {footerItems.map((footerItem) => (
-              <p className={styles.footerItem}>{footerItem}</p>
+              <p
+              onClick={() => {
+                router.push(`/all-products/${footerItem.url}`);
+              }}
+              className={styles.footerItem}>{footerItem.heading}</p>
             ))}
           </div>
         ))}
@@ -33,17 +39,17 @@ const footer = () => {
               className="mediumIcon icon"
             />
           </div>
-          <div className={styles.searchBox}>
+          {/* <div className={styles.searchBox}>
           <input className={styles.input} placeholder="Write your query" />
           <button  className={styles.addToCart} >
         Send
     </button>
-        </div>
+        </div> */}
         </div>
       </div>
       <div className={styles.copyright}>
-        <p>Copyright Gaadidekho </p>
-        <p>Made by Gourav and max</p>
+        <p>Copyright Vigourous Motors </p>
+        {/* <p>Made by Gourav and max</p> */}
       </div>
     </>
   );

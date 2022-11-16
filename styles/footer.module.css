@@ -10,6 +10,7 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 .footerItems {
+  cursor: pointer;
 }
 .footerItem {
   color: #444;
@@ -27,7 +28,7 @@
   width: inherit;
   background-color: #222;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 2rem;
 }
@@ -75,3 +76,22 @@
   background-color: #0063d1;
   color: white;
 }
+
+
+@media  screen and (max-width: 1024px) {
+  .footer{
+      grid-template-columns: 1fr 1fr 1fr }
+    }
+  @media  screen and (max-width: 768px) {
+  .footer{
+      grid-template-columns: 1fr 1fr   ;
+  }
+    }
+  @media  screen and (max-width: 480px) {
+  .footer{
+      grid-template-columns: 1fr   ;
+  }
+  .wishlistProductCard>img{
+      height: 60%;
+  }
+    }

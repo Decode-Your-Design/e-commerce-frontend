@@ -39,3 +39,21 @@
   .switchUser{
     cursor: pointer;
   }
+
+
+  @media  screen and (max-width: 1024px) {
+
+      }
+    @media  screen and (max-width: 768px) {
+      .loginSection,.loginSignupButton,.input{
+        width: 90%;
+      }
+      }
+    @media  screen and (max-width: 480px) {
+      .loginSection,.loginSignupButton,.input{
+        width: 94%;
+      }
+      .input{
+        /* width: 90%; */
+      }
+      }

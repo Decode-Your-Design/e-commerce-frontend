@@ -8,6 +8,7 @@ import { RiArrowDropRightLine } from "react-icons/ri";
 import { RiArrowDropLeftLine } from "react-icons/ri";
 import { DEALS } from "../data";
 import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
 import DealsSlider from "../components/weeklyDealSlider/dealsSlider";
 import DealsTabs from "../components/weeklyDealTabs/DealsTabs";
 import OurServices from "../components/ourService/ourServices";
@@ -36,9 +37,9 @@ const Home: NextPage = () => {
             </div> */}
           </div>
           <DealsSlider
-            deals={DEALS}
-            next={() => setCount(count + 1)}
-            prev={() => setCount(count - 1)}
+            // deals={DEALS}
+            // next={() => setCount(count + 1)}
+            // prev={() => setCount(count - 1)}
             currentSlide={count}
           />
         </div>
@@ -46,7 +47,7 @@ const Home: NextPage = () => {
           <DealsTabs />
         </div>
       </div>
-      <OurServices />
+      {/* <OurServices /> */}
       {/* <BannerWithCards/> */}
       {/* <div className={feature.section_feature}>
         <div className={feature.left_box}>
@@ -67,6 +68,7 @@ const Home: NextPage = () => {
       </div> */}
       {/* <Footer/> */}
       </>
+
   );
 };
 

@@ -2,26 +2,59 @@ import React, { useState } from "react";
 import styles from "../../styles/popup-form.module.css";
 import { useRouter } from "next/router";
 import { RiCloseFill } from "react-icons/ri";
-export default function PopupForm({ addProduct, setOpenForm }) {
+import axios from "axios";
+import { appContext } from "../../context/appContext";
+export default function PopupForm({ addProduct, setOpenForm,productData,setProductData,getVendorProducts }) {
   const router = useRouter();
-  const [productData, setProductData] = useState({
-    name: "",
-    price: "",
-    offerPrice: "",
-    shortDesc: "",
-    longDesc: "",
-    vehicleType: "",
-  });
-  const addVendorProduct = () => {
-    console.log("this is product datya", productData);
+  const _id = localStorage.getItem("_id");
+  const accessToken = localStorage.getItem("accessToken");
+  const {setOpenToastify} =React.useContext(appContext)
+
+  const addVendorProduct = async () => {
+   const response= await axios.post(
+      "http://localhost:8000/api/product/addProduct",
+      productData,
+      { headers: {"Authorization" : `Bearer ${accessToken}`} }
+    );
+    if(response.data.success){
+setOpenForm(false)
+sessionStorage.setItem("backgroundColor","#28a745")
+sessionStorage.setItem("toastifyContent",response.data.message)
+setOpenToastify(true)
+setProductData({})
+getVendorProducts()
+    }
+    else{
+      sessionStorage.setItem('backgroundColor',"red")
+      sessionStorage.setItem("toastifyContent",response.data.message)
+      setOpenToastify(true)
+    }
   };
-  const inputData = [
-    { placeholder: "Name", value: "", name: "name" },
-    { placeholder: "Actual Price", value: "", name: "price" },
-    { placeholder: "Offer Price", value: "", name: "offerPrice" },
-    { placeholder: "Short Description", value: "", name: "shortDesc" },
-    { placeholder: "Long Description", value: "", name: "longDesc" },
-  ];
+  const updateProduct = async () => {
+    
+   const response = await axios.post(
+      `http://localhost:8000/api/product/updateProductDetails/${productData._id}`,
+      productData,
+      { headers: {"Authorization" : `Bearer ${accessToken}`} }
+    );
+    console.log("this is response",response)
+    if(response.data.success){
+      setOpenForm(false)
+sessionStorage.setItem("backgroundColor","#28a745")
+sessionStorage.setItem("toastifyContent",response.data.message)
+setOpenToastify(true)
+setProductData({})
+getVendorProducts()
+    }
+    else{
+      sessionStorage.setItem('backgroundColor',"red")
+      sessionStorage.setItem("toastifyContent",response.data.message)
+      setOpenToastify(true)
+    }
+  };
+
+
+  console.log("this is product data",productData  );
   const handleChange = (e: any) => {
     setProductData({ ...productData, [e.target.name]: e.target.value });
   };
@@ -33,21 +66,55 @@ export default function PopupForm({ addProduct, setOpenForm }) {
       />
       <h1>{addProduct ? "Add Product" : "Update Product"}</h1>
       <form>
-        {inputData.map((input: any) => (
+
           <div>
             {/* <label>{input.label}</label> */}
             <input
               onChange={(e) => handleChange(e)}
               className={styles.productAddEditInput}
-              placeholder={input.placeholder}
+              placeholder="Name"
               type="text"
-              name={input.name}
+              value={productData?.name}
+              name="name"
             />
+            <input
+              onChange={(e) => handleChange(e)}
+              className={styles.productAddEditInput}
+              placeholder="Price"
+              type="text"
+              value={productData?.price}
+              name="price"
+            />
+            <input
+              onChange={(e) => handleChange(e)}
+              className={styles.productAddEditInput}
+              placeholder="Offer Price"
+              type="text"
+              value={productData?.offerPrice}
+              name="offerPrice"
+            />
+            <input
+              onChange={(e) => handleChange(e)}
+              className={styles.productAddEditInput}
+              placeholder="Short Description"
+              type="text"
+              value={productData?.shortDesc}
+              name="shortDesc"
+            />
+            <input
+              onChange={(e) => handleChange(e)}
+              className={styles.productAddEditInput}
+              placeholder="Long Description"
+              type="text"
+              value={productData?.longDesc}
+              name="longDesc"
+            />
+
           </div>
-        ))}
         <div>
           <select
             name="vehicleType"
+            value={productData?.vehicleType}
             onChange={(e) => handleChange(e)}
             className={styles.productAddEditInput}
           >
@@ -78,7 +145,7 @@ export default function PopupForm({ addProduct, setOpenForm }) {
       ) : (
         <button
           onClick={() => {
-            router.push("/wishlist");
+            updateProduct()
           }}
           className={styles.addUpdateButton}
         >

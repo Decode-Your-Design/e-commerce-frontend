@@ -7,15 +7,20 @@
 }
 .vendorListProducts{
 display: grid;
-grid-template-columns: 1fr 1fr 1fr ;
+grid-template-columns: 1fr 1fr 1fr;
+/* flex-wrap: wrap; */
 margin-top: 2rem;
 
 }
 .vendorListProductCard{
     background-color: white;
+    /* flex-grow: 1; */
     box-shadow: 2px 2px 10px gray;
     border-radius: 0.1rem;
     margin: 1rem 1rem;
+    /* flex-wrap: wrap; */
+    /* flex: 1; */
+    /* flex-basis: auto; */
     cursor: pointer;
     padding: 1rem;
     position: relative;
@@ -48,3 +53,26 @@ margin-top: 2rem;
 .priceSection>h3{
     margin-top: 0.4rem !important;
 }
+
+
+@media  screen and (max-width: 1024px) {
+    .vendorListProducts{
+        /* grid-template-columns: 1fr 1fr 1fr */
+     }
+      }
+    @media  screen and (max-width: 768px) {
+    .vendorListProducts{
+        grid-template-columns: 1fr 1fr   ;
+    }
+    .vendorListProductCard{
+        margin: 1rem 0.2rem;
+    }
+      }
+    @media  screen and (max-width: 480px) {
+    .vendorListProducts{
+        /* grid-template-columns: 1fr    ; */
+    }
+    .wishlistProductCard>img{
+        height: 60%;
+    }
+      }

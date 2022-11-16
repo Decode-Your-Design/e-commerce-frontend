@@ -1,6 +1,6 @@
 .toastify{
-    width: 20vw;
-    height: auto;
+    min-width: 20vw;
+    width: auto;
     padding: 1rem;
     position: absolute;
     top: 1rem;
@@ -11,3 +11,31 @@
 
     
 }
+
+
+@media  screen and (max-width: 1024px) {
+    .section_deals{
+      margin: 1rem 1rem;
+       }
+      }
+    @media  screen and (max-width: 768px) {
+    .section_deals{
+        grid-template-columns: 1fr   ;
+        
+        margin: 1rem 0.2rem;
+    }
+    .productList{
+      grid-template-columns: 1fr 1fr;
+    }
+    .right_box{
+      padding: 0;
+    }
+      }
+    @media  screen and (max-width: 480px) {
+    .wishlistProducts{
+        grid-template-columns: 1fr 1fr   ;
+    }
+    .wishlistProductCard>img{
+        height: 60%;
+    }
+      }

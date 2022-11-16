@@ -39,3 +39,22 @@
   .switchUser{
     cursor: pointer;
   }
+
+  @media  screen and (max-width: 1024px) {
+    .imageDiv{
+      display: none;
+    }
+      }
+    @media  screen and (max-width: 768px) {
+      .addVendorSection{
+        width: 90%;
+      }
+      }
+    @media  screen and (max-width: 480px) {
+      .addVendorSection{
+        width: 100%;
+      }
+  .input{
+    width: 95%;
+  }
+      }

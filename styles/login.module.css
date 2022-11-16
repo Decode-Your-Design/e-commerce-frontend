@@ -44,3 +44,17 @@
 .switchUser{
   cursor: pointer;
 }
+
+@media  screen and (max-width: 1024px) {
+  .imageDiv{
+    display: none;
+  }
+    }
+  @media  screen and (max-width: 768px) {
+
+    }
+  @media  screen and (max-width: 480px) {
+.input{
+  width: 95%;
+}
+    }

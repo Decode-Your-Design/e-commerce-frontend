@@ -6,10 +6,17 @@ body {
   /* background-color: #f9f9f9; */
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    /* background-color: #f9f9f9; */
 }
 p{
   margin: 0;
   padding: 0;
+  /* word-wrap: break-word; */
+  word-break: break-all;
+}
+span{
+  /* word-wrap: break-word; */
+  word-break: break-all;
 }
 a {
   color: inherit;
@@ -33,7 +40,8 @@ p{
   margin: 0;
 }
 h1,h2,h3,h4,h5,h6{
-  margin: 0;
+  /* margin: 0; */
+  word-break: break-all;
 }
 .mediumIcon{
   font-size: 2rem;
@@ -47,3 +55,16 @@ h1,h2,h3,h4,h5,h6{
 .icon{
   cursor: pointer;
 }
+
+
+@media  screen and (max-width: 1024px) {
+
+    }
+  @media  screen and (max-width: 768px) {
+
+    }
+  @media  screen and (max-width: 480px) {
+body{
+  font-size: 95%;
+}
+    }

@@ -7,9 +7,9 @@ export default function banner() {
       <div>
         <h1>Get the best deals near by </h1>
         <p>We are here to give you the best deal</p>
-        <button className={styles.browseNow} >
+        {/* <button className={styles.browseNow} >
             Browse Now <RiArrowRightLine style={{marginLeft:"0.4rem"}} />
-        </button>
+        </button> */}
       </div>
     </div>
   );

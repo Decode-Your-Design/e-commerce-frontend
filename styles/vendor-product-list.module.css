@@ -73,3 +73,34 @@ margin-top: 2rem;
 .priceSection>h3{
     margin-top: 0.4rem !important;
 }
+
+
+@media  screen and (max-width: 1024px) {
+    .vendorProducts{
+        grid-template-columns: 1fr 1fr 1fr }
+      }
+    @media  screen and (max-width: 768px) {
+    .vendorProducts{
+        grid-template-columns: 1fr 1fr   ;
+    }
+    .vendorProductCard>img{
+        height: 55%;
+    }
+      }
+    @media  screen and (max-width: 480px) {
+        .vendorHeading{
+            flex-direction: column;
+        }
+    .vendorProducts{
+        grid-template-columns: 1fr 1fr   ;
+    }
+    .vendorProductCard{
+        margin: 1rem 0.5rem;
+    }
+    .vendorProductCard>img{
+        height: 50%;
+    }
+    /* .wishlistProductCard>img{
+        height: 60%;
+    } */
+      }
