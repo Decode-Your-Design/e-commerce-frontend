@@ -30,6 +30,13 @@ getVendorProducts()
       setOpenToastify(true)
     }
   };
+  const handleImageChange = (e)=>{
+console.log("e.target.value",e.target.files[0])
+setProductData({ ...productData, ['image']: e.target.files[0] });
+  }
+  const handleChange = (e: any) => {
+    setProductData({ ...productData, [e.target.name]: e.target.value });
+  };
   const updateProduct = async () => {
     
    const response = await axios.post(
@@ -55,9 +62,7 @@ getVendorProducts()
 
 
   console.log("this is product data",productData  );
-  const handleChange = (e: any) => {
-    setProductData({ ...productData, [e.target.name]: e.target.value });
-  };
+
   return (
     <div className={styles.productAddEditSection}>
       <RiCloseFill
@@ -127,6 +132,7 @@ getVendorProducts()
         <div className={styles.productAddEditInput}>
           <label>Product image</label>
           <input
+        onChange={(e)=>handleImageChange(e)}
             style={{ marginLeft: "0.8rem" }}
             placeholder="product image"
             type="file"
