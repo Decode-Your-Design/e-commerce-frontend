@@ -8,13 +8,20 @@ import PopupForm from "../components/popup-form/popup-form";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { appContext } from "../context/appContext";
+import Loader from "../components/loader";
 export default function VendorProductList() {
   const router = useRouter();
   const { setOpenToastify } = useContext(appContext);
   const [openForm, setOpenForm] = useState(false);
   const [addProduct, setAddProduct] = useState(true);
   const [productsData, setProductsData] = useState([]);
-  const [productData, setProductData] = useState({});
+  const [productData, setProductData] = useState({
+    name:"",
+    price:"",
+    shortDesc:"",
+    longDesc:"",
+    vehicleType:""
+  });
   const [loading,setLoading] = useState(true)
   // const accessToken = localStorage.getItem('accessToken')
 
@@ -45,7 +52,16 @@ export default function VendorProductList() {
       router.push("/");
     }
   }, []);
+
+  const getProductImage = (ele)=>{
+    const base64String = btoa(
+        String.fromCharCode(new Uint8Array(ele))
+      
+    );
+    return base64String
+  }
   const deleteProduct = async (productId: String) => {
+    setLoading(true)
     const response = await axios.post(
       `http://localhost:8000/api/product/removeProduct/${productId}`,
       productData,
@@ -55,7 +71,8 @@ export default function VendorProductList() {
         },
       }
     );
-    setOpenForm(false);
+    // setOpenForm(false);
+
     if(response.data.success){
 
       sessionStorage.setItem("backgroundColor", "red");
@@ -78,6 +95,7 @@ export default function VendorProductList() {
           productData={productData}
           addProduct={addProduct}
           setOpenForm={setOpenForm}
+          setLoading={setLoading}
         />
       )}
       <div className={styles.vendorHeading}>
@@ -96,7 +114,10 @@ export default function VendorProductList() {
         </div>
       </div>
       {
-        !loading && productsData.length==0 ?
+        loading ? 
+        <Loader/>
+        :
+         productsData.length==0 ?
         <div style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
         <h1 style={{marginTop:"1rem"}} >
           No Product 
@@ -104,7 +125,11 @@ export default function VendorProductList() {
         </div>
         :
       <div className={styles.vendorProducts}>
-        {productsData.map((product) => (
+        {productsData.map((product) => {
+                  // const base64String = window.btoa(
+                  //   String.fromCharCode(...new Uint8Array(product.img.data.data))
+                  // );
+          return(
           <>
             <div
               // onClick={()=>{router.push(`/product-detail/1`)}}
@@ -126,9 +151,18 @@ export default function VendorProductList() {
                 }}
                 className={styles.editIcon}
               />
-
-              <img src="https://static.autox.com/uploads/2018/10/Honda-Activa-5G-Image-Gallery-5-.jpg" />
-              <div className={styles.priceSection}>
+   
+        {/* <img src="https://static.autox.com/uploads/2018/10/Honda-Activa-5G-Image-Gallery-5-.jpg" width="300"/> 
+        */}
+        <img src={`data:image/jpeg;base64,${product?.frontImage?.data}`} />
+{/* // how to use image in frontend */}
+{/* // <img src={`data:image/png;base64,${base64String}`} width="300"/> */}
+              {/* <img src="https://static.autox.com/uploads/2018/10/Honda-Activa-5G-Image-Gallery-5-.jpg" /> */}
+              <div
+              onClick={()=>{
+                router.push(`/product-detail/${product?._id}`)
+              }}
+              className={styles.priceSection}>
                 {/* <p>{product.name}</p> */}
                 <p>{product?.name.length<15 ? product?.name :`${product?.name.slice(0,15)}...`}</p>
                 <h3>
@@ -142,7 +176,8 @@ export default function VendorProductList() {
               </div>
             </div>
           </>
-        ))}
+          )
+})}
       </div>
 }
     </>

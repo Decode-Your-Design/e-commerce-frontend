@@ -3,10 +3,12 @@ import axios from 'axios';
 import styles from '../styles/my-notification.module.css'
 import { useRouter } from 'next/router';
 import { appContext } from '../context/appContext';
+import Loader from '../components/loader';
 
 export default function MyNotification() {
     const [contactData,setContactData] = React.useState([])
     const {openToastify} = useContext(appContext)
+    const[loading,setLoading] = React.useState(true)
     const router = useRouter()
     const getNotification = async()=>{
         const response = await axios.post(
@@ -19,6 +21,7 @@ export default function MyNotification() {
           );
           console.log("fgd",response)
           if(response.data.success){
+            setLoading(false)
             setContactData(response.data.result)
           }
           else{
@@ -36,6 +39,20 @@ getNotification()
     },[])
 
   return (
+
+    
+      loading ? 
+      <Loader/>
+:
+    <>
+    {
+      contactData.length==0 ?
+      <div style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
+      <h1 style={{marginTop:"1rem"}} >
+        No Vendors
+      </h1>
+      </div>
+      :
     <div  >
 {
     contactData.map((contact)=>(
@@ -48,5 +65,7 @@ getNotification()
     ))
 }
     </div>
+}
+    </>
   )
 }

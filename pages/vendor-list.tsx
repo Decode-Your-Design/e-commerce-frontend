@@ -8,6 +8,7 @@ import PopupForm from "../components/popup-form/popup-form";
 import axios from 'axios'
 import { appContext } from "../context/appContext";
 import { useRouter } from "next/router";
+import Loader from "../components/loader";
 export default function VendorList() {
   const [openForm, setOpenForm] = useState(false);
   const [addProduct, setAddProduct] = useState(false);
@@ -33,6 +34,7 @@ export default function VendorList() {
       sessionStorage.setItem('backgroundColor',"red")
       sessionStorage.setItem('toastifyContent',response.data.message)
       setOpenToastify(true)
+      
     }
  
   }
@@ -46,6 +48,7 @@ export default function VendorList() {
       
   },[])
   const deleteVendor = async(id)=>{
+    setLoading(true)
     const response =await axios.get(`http://localhost:8000/api/admin/removeVendor/${id}`, { headers: {"Authorization" : `Bearer ${localStorage.getItem('accessToken')}`} })
          if(response.data.success){
     sessionStorage.setItem('toastifyContent',response.data.message);
@@ -59,11 +62,17 @@ export default function VendorList() {
       setOpenToastify(true)
     }
   }
+console.log("this is loading",loading)
 
   return (
+    
+      loading ? 
+      <Loader/>
+    
+    :
     <>
     {
-      !loading && vendorList.length==0 ?
+       vendorList.length==0 ?
 
       <div style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
       <h1 style={{marginTop:"1rem"}} >
@@ -79,7 +88,7 @@ export default function VendorList() {
       <div className={styles.vendorListProducts}>
         {vendorList.map((vendor,key) => (
           <>{
-            vendor.isActive &&
+            vendor?.isActive &&
           
             <div className={styles.vendorListProductCard}>
             <RiDeleteBin5Fill 
@@ -97,6 +106,7 @@ export default function VendorList() {
 </div>
 </>
 }
-    </>
+</>
+
   );
 }

@@ -4,20 +4,51 @@ import { useRouter } from "next/router";
 import { RiCloseFill } from "react-icons/ri";
 import axios from "axios";
 import { appContext } from "../../context/appContext";
-export default function PopupForm({ addProduct, setOpenForm,productData,setProductData,getVendorProducts }) {
+export default function PopupForm({ addProduct,setLoading, setOpenForm,productData,setProductData,getVendorProducts }) {
   const router = useRouter();
   const _id = localStorage.getItem("_id");
   const accessToken = localStorage.getItem("accessToken");
   const {setOpenToastify} =React.useContext(appContext)
-
+const data={
+  name:""
+}
+console.log("hello",productData)
+  const [image,setImage] = useState({})
+  const [backImage,setBackImage] = useState({})
+  const [leftImage,setLeftImage] = useState({})
+  const [rightImage,setRightImage] = useState({})
   const addVendorProduct = async () => {
+    let allField = true
+      console.log("this is product data",productData)
+    for(const key in productData){
+      if(productData[key]==""){
+        alert("All field are required")
+        allField=false
+        return
+      }
+    }
+    if(allField){
+    setOpenForm(false)
+    setLoading(true)
+    console.log("fsdfsd",image)
+    const formdata = new FormData();
+    formdata.append('name',productData.name)
+    formdata.append('price',productData.price)
+    formdata.append('offerPrice',productData.offerPrice)
+    formdata.append('shortDesc',productData.shortDesc)
+    formdata.append('longDesc',productData.longDesc)
+    formdata.append('vehicleType',productData.vehicleType)
+    formdata.append('image',image)
+    formdata.append('image',rightImage)
+    formdata.append('image',backImage)
+    formdata.append('image',leftImage)
+
    const response= await axios.post(
       "http://localhost:8000/api/product/addProduct",
-      productData,
+      formdata,
       { headers: {"Authorization" : `Bearer ${accessToken}`} }
     );
     if(response.data.success){
-setOpenForm(false)
 sessionStorage.setItem("backgroundColor","#28a745")
 sessionStorage.setItem("toastifyContent",response.data.message)
 setOpenToastify(true)
@@ -29,16 +60,41 @@ getVendorProducts()
       sessionStorage.setItem("toastifyContent",response.data.message)
       setOpenToastify(true)
     }
+
+  }
+  
   };
   const handleImageChange = (e)=>{
 console.log("e.target.value",e.target.files[0])
-setProductData({ ...productData, ['image']: e.target.files[0] });
+setImage(e.target.files[0])
+// setProductData({ ...productData, ['image']: e.target.files[0] });
+
+  }
+  const handleLeftImageChange = (e)=>{
+console.log("e.target.value",e.target.files[0])
+setLeftImage(e.target.files[0])
+// setProductData({ ...productData, ['image']: e.target.files[0] });
+
+  }
+  const handleRightImageChange = (e)=>{
+console.log("e.target.value",e.target.files[0])
+setRightImage(e.target.files[0])
+// setProductData({ ...productData, ['image']: e.target.files[0] });
+
+  }
+  const handleBackImageChange = (e)=>{
+console.log("e.target.value",e.target.files[0])
+setBackImage(e.target.files[0])
+// setProductData({ ...productData, ['image']: e.target.files[0] });
+
   }
   const handleChange = (e: any) => {
+    console.log("e.target.value",e.target.value,e.target.n)
     setProductData({ ...productData, [e.target.name]: e.target.value });
   };
   const updateProduct = async () => {
-    
+    setOpenForm(false)
+    setLoading(true)
    const response = await axios.post(
       `http://localhost:8000/api/product/updateProductDetails/${productData._id}`,
       productData,
@@ -86,7 +142,7 @@ getVendorProducts()
               onChange={(e) => handleChange(e)}
               className={styles.productAddEditInput}
               placeholder="Price"
-              type="text"
+              type="number"
               value={productData?.price}
               name="price"
             />
@@ -94,7 +150,7 @@ getVendorProducts()
               onChange={(e) => handleChange(e)}
               className={styles.productAddEditInput}
               placeholder="Offer Price"
-              type="text"
+              type="number"
               value={productData?.offerPrice}
               name="offerPrice"
             />
@@ -130,12 +186,44 @@ getVendorProducts()
           </select>
         </div>
         <div className={styles.productAddEditInput}>
-          <label>Product image</label>
+          <label>Product Front image</label>
           <input
         onChange={(e)=>handleImageChange(e)}
             style={{ marginLeft: "0.8rem" }}
             placeholder="product image"
             type="file"
+            value={productData?.image}
+          />
+        </div>
+   
+        <div className={styles.productAddEditInput}>
+          <label>Product Back image</label>
+          <input
+        onChange={(e)=>handleBackImageChange(e)}
+            style={{ marginLeft: "0.8rem" }}
+            placeholder="product image"
+            type="file"
+            value={productData?.image}
+          />
+        </div>
+        <div className={styles.productAddEditInput}>
+          <label>Product Left side image</label>
+          <input
+        onChange={(e)=>handleLeftImageChange(e)}
+            style={{ marginLeft: "0.8rem" }}
+            placeholder="product image"
+            type="file"
+            value={productData?.image}
+          />
+        </div>
+        <div className={styles.productAddEditInput}>
+          <label>Product Right side image</label>
+          <input
+        onChange={(e)=>handleRightImageChange(e)}
+            style={{ marginLeft: "0.8rem" }}
+            placeholder="product image"
+            type="file"
+            value={productData?.image}
           />
         </div>
       </form>

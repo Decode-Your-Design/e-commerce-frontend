@@ -33,12 +33,9 @@ const DealsTabs = () => {
           <>
             <button
               onClick={() => {
-                if(toggleState==2){
-                  toggleTab(0)
-                }
-                else{
+            
                 toggleTab(key);
-                }
+                
                 // setCurrentTab(vehicleType.heading);
               }}
               className={

@@ -4,6 +4,7 @@ import { useState } from "react";
 import axios from "axios";
 import { appContext } from "../context/appContext";
 import { useRouter } from "next/router";
+import Loader from "../components/loader";
 export default function login() {
   const router = useRouter()
   const [userDetail, setUserDetail] = useState({
@@ -11,14 +12,32 @@ export default function login() {
     password: "",
     userType:"Customer"
   });
-  const [login, setLogin] = useState(true);
+  const [login, setLogin] = useState(false);
+  const[loading,setLoading] = React.useState(false)
   const {openToastify,setOpenToastify} = React.useContext(appContext)
   const handleChange = (e) => {
     setUserDetail({ ...userDetail, [e.target.name]: e.target.value });
   };
   const signup = async()=>{
   
+    let letUserSign = true
+  for(const key in userDetail){
+
+    if(userDetail[key]==""){
+      letUserSign=false
+      alert("All Fields are Required.. सभी फ़ील्ड आवश्यक हैं")
+    }
+  }
+  if(userDetail?.phone.length<10 || userDetail?.phone.length>10){
+    letUserSign=false
+    alert("Please Enter 10 digit Phone Number")
+  }
+  if(letUserSign){
+    setLoading(true)
+    // setDisableButton(true)
     const response =await axios.post('http://localhost:8000/api/auth/signUp',userDetail)
+    // setDisableButton(false)
+    setLoading(false)
     if(response.data.success){
     sessionStorage.setItem('toastifyContent',"Sign up successfull!! Please Login");
     sessionStorage.setItem('backgroundColor',"#28a745");
@@ -29,13 +48,31 @@ export default function login() {
       sessionStorage.setItem("toastifyContent",response.data.message)
       setOpenToastify(true)
     }
+  }
     }
   const loginFunction = async () => {
-    
+  
+    let letUserLogin = true
+    for(const key in userDetail){
+  
+      if(userDetail[key]==""){
+        alert("All Fields are Required.. सभी फ़ील्ड आवश्यक हैं")
+        letUserLogin=false
+      }
+    }
+    if(userDetail?.phone.length<10 || userDetail?.phone.length>10){
+      letUserLogin=false
+      alert("Please Enter 10 digit Phone Number")
+    }
+
+    if(letUserLogin){
+      setLoading(true)
     const response = await axios.post(
       "http://localhost:8000/api/auth/login",
       userDetail
     );
+    setLoading(false)
+    // setDisableButton(false)
     console.log("this sis r0",response)
     if(response.data.success){
       localStorage.setItem("accessToken", response.data.accessToken);
@@ -55,10 +92,17 @@ export default function login() {
         sessionStorage.setItem("toastifyContent",response.data.message)
         setOpenToastify(true)
       }
+    }
     // console.log("this is reponse", response);
 
   };
+  const [disableButton,setDisableButton] = useState(false)
   return (
+    loading ? 
+    <>
+    <Loader/>
+    </>
+    :
     <div className={styles.loginSection}>
       <div className={styles.imageDiv}></div>
 
@@ -68,6 +112,8 @@ export default function login() {
           onChange={(e) => handleChange(e)}
           className={styles.input}
           name="phone"
+          type="number"
+          maxLength="10"
           placeholder="Enter phone number"
         />
         <input
@@ -80,6 +126,7 @@ export default function login() {
         {login ? (
           <>
             <button
+            
               onClick={loginFunction}
               className={styles.loginSignupButton}
             >
@@ -96,7 +143,7 @@ export default function login() {
           </>
         ) : (
           <>
-            <button onClick={signup} className={styles.loginSignupButton}>
+            <button  onClick={signup} className={styles.loginSignupButton}>
               Sign up
             </button>
             <p

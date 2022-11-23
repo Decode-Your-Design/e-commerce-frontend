@@ -5,6 +5,7 @@ import Header from "../components/header/header";
 import { useRouter } from "next/router";
 import axios from "axios";
 import { appContext } from "../context/appContext";
+import Loader from "../components/loader";
 export default function wishlist() {
   const router = useRouter()
   const [productData,setProductData] = React.useState([])
@@ -22,6 +23,7 @@ export default function wishlist() {
     setLoading(false)
   }
   const deleteItem = async(productId)=>{
+    setLoading(true)
     const response = await  axios.post(`http://localhost:8000/api/wishlist/removeProductFromWishlist/${productId}`,null,{
       headers:{
         Authorization:`Bearer ${localStorage.getItem('accessToken')}`
@@ -30,6 +32,7 @@ export default function wishlist() {
   
     console.log('this is response',response)
     if(response.data.success){
+      setLoading(false)
       sessionStorage.setItem('backgroundColor',"red")
       sessionStorage.setItem('toastifyContent',response.data.message)
       setOpenToastify(true)
@@ -57,7 +60,12 @@ export default function wishlist() {
   return (
     <>
     {
-      !loading && productData.length==0 ?
+      loading ? 
+      <Loader/>
+    :
+    <>
+    {
+       productData.length==0 ?
       <div style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
       <h1 style={{marginTop:"1rem"}} >
         No Product in Wishlist
@@ -105,6 +113,8 @@ export default function wishlist() {
         ))}
       </div>
       </>
+}
+    </>
 }
     </>
   );

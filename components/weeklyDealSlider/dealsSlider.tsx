@@ -2,6 +2,7 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import React from 'react'
 import styles from "../../styles/home.module.css";
+import Loader from "../loader";
 const DealsSlider = ({   currentSlide }:any) => {
 
   const getDealsOfTheWeek = async()=>{
@@ -11,6 +12,7 @@ const DealsSlider = ({   currentSlide }:any) => {
     console.log("this is repsosne",response);
     if(response.data.success){
       setDeals(response.data.result)
+      setLoading(false)
     }
     
   }
@@ -29,9 +31,15 @@ const DealsSlider = ({   currentSlide }:any) => {
     setCurrentDeal(currentDeal-1)
   }
   const router = useRouter()
+  const[loading,setLoading] = React.useState(true)
   return (
     <>
     {
+      loading ?
+      <Loader/>
+      :
+    
+    
       deals.map((deal,key)=>(
         <>
         {currentDeal==key &&
@@ -51,7 +59,7 @@ const DealsSlider = ({   currentSlide }:any) => {
           style={{cursor:'pointer'}}
           onClick={()=>router.push(`./product-detail/${deal?._id}`)}
           // src={deals[currentSlide] && deals[currentSlide].logo} />
-          src="https://imgd.aeplcdn.com/1056x594/n/cw/ec/50118/hero-maestro-edge-front-three-quarter7.jpeg?q=75"/>
+          src={`data:image/jpeg;base64,${deal.frontImage?.data}`}/>
         </div>
       </div>
       <div className={styles.footer}>
@@ -75,7 +83,8 @@ const DealsSlider = ({   currentSlide }:any) => {
 }
       </>
       ))
-    }
+    
+  }
       </>
    
 

@@ -6,6 +6,7 @@ import styles from "../../styles/ProductDetail.module.css";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { appContext } from "../../context/appContext";
+import Loader from "../../components/loader";
 export default function index() {
   const router = useRouter();
   const productId = router.query.productId;
@@ -25,9 +26,11 @@ export default function index() {
       `http://localhost:8000/api/product/getProductById/${router.query.productId}/${localStorage.getItem('userId')}`,
     );
     console.log("this is response", response, response.data.result);
+    setCurrentImage(response.data.result.frontImage?.data)
     setProductData(response.data.result);
 setIsWishlist(response.data.inWishlist)
 setVendorInfo(response.data.result.vendor)
+setLoading(false)
     // addToWishList();
   };
 
@@ -36,6 +39,7 @@ setVendorInfo(response.data.result.vendor)
       router.push("/login")
     }
     else{
+      setLoading(true)
     const response = await axios.post(
       `http://localhost:8000/api/wishlist/addProductToWishlist/${productId}`,
       null,
@@ -45,6 +49,7 @@ setVendorInfo(response.data.result.vendor)
         },
       }
     );
+    setLoading(false)
     if(response.data.success){
     sessionStorage.setItem("backgroundColor", "#28a745");
     sessionStorage.setItem("toastifyContent", response.data.message);
@@ -54,12 +59,14 @@ setVendorInfo(response.data.result.vendor)
     }
   };
   const deleteItem = async()=>{
+    setLoading(true)
     const response = await  axios.post(`http://localhost:8000/api/wishlist/removeProductFromWishlist/${productId}`,null,{
       headers:{
         Authorization:`Bearer ${localStorage.getItem('accessToken')}`
       }
     })
     console.log('this is response',response)
+    setLoading(false)
     if(response.data.success){
       sessionStorage.setItem('backgroundColor',"red")
       sessionStorage.setItem('toastifyContent',response.data.message)
@@ -68,40 +75,86 @@ setVendorInfo(response.data.result.vendor)
     }
   }
   React.useEffect(() => {
+    console.log("thrdigdf",router.query)
+    if(router.query.productId!==undefined){
     getProductDetail();
-  }, []);
+    }
+  }, [router]);
 
-  const [currentImage, setCurrentImage] = React.useState(0);
+  const [currentImage, setCurrentImage] = React.useState(null);
   const [arrowDown, setArrowDown] = React.useState(true);
+  const[loading,setLoading] = useState(true)
   return (
+    loading ?
+    <Loader/>
+    :
     <div >
-      {/* <div>
-        <p>
-          <span>Home</span>
-          <span>/</span>
-          <span>Activa 5g</span>
-        </p>
-      </div> */}
-      {/* product detail main div   */}
+
       <div className={styles.container}>
         <div className={styles.imageSection}>
           <div className={styles.extraImageSection} >
-            {images.map((ele, key) => (
+       
               <div
-                onMouseOver={() => setCurrentImage(key)}
+                // onMouseOver={() => setCurrentImage(key)}
+                className={styles.productExtraImages}
+              >
+                <img
+                       onClick={()=>{
+                        setCurrentImage(productData?.frontImage?.data)
+                      }}
+                  style={{
+                    // border: currentImage == key ? "1px solid black" : "",
+                  }}
+                  src={`data:image/jpeg;base64,${productData?.frontImage?.data}`}
+                />
+              </div>
+       
+              <div
+                // onMouseOver={() => setCurrentImage(key)}
+                className={styles.productExtraImages}
+              >
+                <img
+                       onClick={()=>{
+                        setCurrentImage(productData?.backImage?.data)
+                      }}
+                  style={{
+                    // border: currentImage == key ? "1px solid black" : "",
+                  }}
+                  src={`data:image/jpeg;base64,${productData?.backImage?.data}`}
+                />
+              </div>
+              <div
+                // onMouseOver={() => setCurrentImage(key)}
+                className={styles.productExtraImages}
+              >
+                <img
+                      onClick={()=>{
+                        setCurrentImage(productData?.leftImage?.data)
+                      }}
+                  style={{
+                    // border: currentImage == key ? "1px solid black" : "",
+                  }}
+                  src={`data:image/jpeg;base64,${productData?.leftImage?.data}`}
+                />
+              </div>
+              <div
+                // onMouseOver={() => setCurrentImage(key)}
+                onClick={()=>{
+                  setCurrentImage(productData?.rightImage?.data)
+                }}
                 className={styles.productExtraImages}
               >
                 <img
                   style={{
-                    border: currentImage == key ? "1px solid black" : "",
+                    // border: currentImage == key ? "1px solid black" : "",
                   }}
-                  src={ele}
+                  src={`data:image/jpeg;base64,${productData?.rightImage?.data}`}
                 />
               </div>
-            ))}
+
           </div>
           <div className={styles.productImage}>
-            <img src={images[currentImage]} />
+          <img src={`data:image/jpeg;base64,${currentImage}`} />
 
             {/* <div className={styles.buttonsSection}> */} 
             {

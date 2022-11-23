@@ -20,7 +20,7 @@
 }
 .productImage{
     width: 80%;
-margin-left: auto;
+margin-left: 1rem;
     height: auto;
 }
 .productImage>img{
@@ -136,7 +136,7 @@ margin: 0rem 0.5rem;
     padding: 1.5rem 4rem ;
     border: none;
     color: white;
-    margin: 1rem 0.8rem;
+    margin: 1rem 0;
     width: 100%;
     /* cursor: pointer !important; */
 }

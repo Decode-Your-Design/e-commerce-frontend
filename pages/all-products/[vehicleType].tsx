@@ -4,20 +4,30 @@ import { ScootiesData } from "../../data";
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import { RiDeleteBin5Fill } from 'react-icons/ri';
+import Loader from '../../components/loader';
 export default function Scooties({}) {
   const router = useRouter()
   const [productData,setProductData] = React.useState([])
+  const[loading,setLoading] = React.useState(true)
     const getproductData = async()=>{
       const response = await  axios.get(`http://localhost:8000/api/product/getProductByType/${router.query.vehicleType}`)
       console.log("this is product dta",productData)
       setProductData(response.data.result)
+      setLoading(false)
     }
     React.useEffect(()=>{
+      if(router.query.vehicleType!==undefined){
         getproductData()
+      }
 
-    },[])
+    },[router])
     console.log()
   return (
+    <>
+    {
+      loading ? 
+      <Loader/>
+    :
     <>
   <div className={styles.vehicleHeading}>
         <h1>{router.query.vehicleType}</h1>
@@ -30,7 +40,7 @@ export default function Scooties({}) {
                   router.push(`/product-detail/${product._id}`)
                  }} 
             className={styles.vehicleProductCard}>
-              <img src="https://static.autox.com/uploads/2018/10/Honda-Activa-5G-Image-Gallery-5-.jpg" />
+              <img src={`data:image/jpeg;base64,${product?.frontImage.data}`} />
               <div 
         
               className={styles.priceSection}>
@@ -45,6 +55,8 @@ export default function Scooties({}) {
           </>
         ))}
       </div>
+      </>
+}
 </>
   )
 }

@@ -23,7 +23,7 @@ const [contactData,setContactData]  = useState({
       }
     );
     if(response.data.success){
-      sessionStorage.setItem('backgroundColor',"red")
+      sessionStorage.setItem('backgroundColor',"#28a745")
       sessionStorage.setItem("toastifyContent",response.data.message)
       setOpenToastify(true)
     }
