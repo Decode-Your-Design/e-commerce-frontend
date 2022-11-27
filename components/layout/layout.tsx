@@ -7,7 +7,7 @@ import {Suspense} from 'react'
 import React from 'react'
 import { appContext } from "../../context/appContext";
 import Toastify from "../toastify/toastify";
-const layout = ({ children }:any) => {
+const Layout = ({ children }:any) => {
   const {openToastify} = React.useContext(appContext)
   return (
     <>
@@ -22,4 +22,4 @@ const layout = ({ children }:any) => {
   );
 };
 
-export default layout;
+export default Layout;

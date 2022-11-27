@@ -7,7 +7,8 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import { appContext } from "../../context/appContext";
 import Loader from "../../components/loader";
-export default function index() {
+import Image from "next/image";
+export default function Index() {
   const router = useRouter();
   const productId = router.query.productId;
   const images = [
@@ -17,9 +18,9 @@ export default function index() {
     // "https://cdn.pixabay.com/photo/2022/09/05/10/36/grey-seal-",
   ];
   const { openToastify, setOpenToastify } = React.useContext(appContext);
-  const [productData, setProductData] = React.useState();
-  const [vendorInfo,setVendorInfo] = useState({})
-  const [isWishlist,setIsWishlist] = useState()
+  const [productData, setProductData] = React.useState<any>();
+  const [vendorInfo,setVendorInfo] = useState<any>({})
+  const [isWishlist,setIsWishlist] = useState<any>()
   const getProductDetail = async () => {
     console.log("fdbg0", router);
     const response = await axios.get(
@@ -98,7 +99,7 @@ setLoading(false)
                 // onMouseOver={() => setCurrentImage(key)}
                 className={styles.productExtraImages}
               >
-                <img
+                <Image  alt=""
                        onClick={()=>{
                         setCurrentImage(productData?.frontImage?.data)
                       }}
@@ -113,7 +114,7 @@ setLoading(false)
                 // onMouseOver={() => setCurrentImage(key)}
                 className={styles.productExtraImages}
               >
-                <img
+                <Image  alt=""
                        onClick={()=>{
                         setCurrentImage(productData?.backImage?.data)
                       }}
@@ -127,7 +128,7 @@ setLoading(false)
                 // onMouseOver={() => setCurrentImage(key)}
                 className={styles.productExtraImages}
               >
-                <img
+                <Image  alt=""
                       onClick={()=>{
                         setCurrentImage(productData?.leftImage?.data)
                       }}
@@ -144,7 +145,7 @@ setLoading(false)
                 }}
                 className={styles.productExtraImages}
               >
-                <img
+                <Image  alt=""
                   style={{
                     // border: currentImage == key ? "1px solid black" : "",
                   }}

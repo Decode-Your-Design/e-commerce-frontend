@@ -59,7 +59,7 @@ const Products = ({ title }: { title: string }) => {
                             showPreviousProduct()
                         }}
                         className={`${styles.arrow} ${styles.arrowBack}`}  >
-                        <Image className={styles.arrowImage} src={arrowback} width={10} height={10} />
+                        <Image alt="" className={styles.arrowImage} src={arrowback} width={10} height={10} />
                     </div>}
 
                 {lastIndex != productData.length &&
@@ -69,13 +69,15 @@ const Products = ({ title }: { title: string }) => {
                         }}
                         className={`${styles.arrow} ${styles.arrowForward}`} >
 
-                        <Image className={styles.arrowImage} src={arrowForward} width={10} height={10} />
+                        <Image alt="" className={styles.arrowImage} src={arrowForward} width={10} height={10} />
                     </div>
                 }
                 
                 {
-                    productData.slice(firstIndex, lastIndex).map((ele) => (
+                    productData.slice(firstIndex, lastIndex).map((ele,key:any) => (
+                        <div key={key} >
                         <Product product={ele} />
+                        </div>
                     ))
                 }
             </div>

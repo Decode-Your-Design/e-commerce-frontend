@@ -7,7 +7,7 @@ import Loader from '../components/loader';
 
 export default function MyNotification() {
     const [contactData,setContactData] = React.useState([])
-    const {openToastify} = useContext(appContext)
+    const {openToastify,setOpenToastify} = useContext(appContext)
     const[loading,setLoading] = React.useState(true)
     const router = useRouter()
     const getNotification = async()=>{
@@ -32,11 +32,31 @@ export default function MyNotification() {
     }
     React.useEffect(()=>{
       if(localStorage.getItem("userType")=="Admin"){
-getNotification()
+// getNotification()
+async()=>{
+  const response = await axios.post(
+      `http://localhost:8000/api/contact/getContactQuery`,
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+      }
+    );
+    console.log("fgd",response)
+    if(response.data.success){
+      setLoading(false)
+      setContactData(response.data.result)
+    }
+    else{
+      sessionStorage.setItem('backgroundColor',"red")
+      sessionStorage.setItem("toastifyContent",response.data.message)
+      setOpenToastify(true)
+    }
+}
       }
       else{router.push('/')
       }
-    },[])
+    },[router,setOpenToastify])
 
   return (
 
@@ -55,8 +75,8 @@ getNotification()
       :
     <div  >
 {
-    contactData.map((contact)=>(
-<div className={styles.notificationCard}>
+    contactData.map((contact:any,key)=>(
+<div key={key} className={styles.notificationCard}>
 <p style={{marginTop:"0.5rem"}}> <span style={{fontWeight:"bold"}} > Name </span> : {contact?.fullName}</p>
 <p style={{marginTop:"0.5rem"}}> <span style={{fontWeight:"bold"}} > Phone </span> : {contact?.phone}</p>
 <p style={{marginTop:"0.5rem"}}> <span style={{fontWeight:"bold"}} > Message </span> : {contact?.address}</p>

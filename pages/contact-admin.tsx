@@ -8,7 +8,7 @@ export default function ContactAdmin() {
 const [contactData,setContactData]  = useState({
   message:"I want to become a vendor"
 })
-  const handleChange = (e)=>{
+  const handleChange = (e:any)=>{
     setContactData({...contactData,[e.target.name]:e.target.value})
   }
   const {openToastify,setOpenToastify} = React.useContext(appContext)
@@ -38,7 +38,7 @@ const [contactData,setContactData]  = useState({
     if(localStorage.getItem("userType")!=='Customer' ){
       router.push('/')
     }
-  },[])
+  },[router])
   return (
     <div
     className={styles.contactSection}

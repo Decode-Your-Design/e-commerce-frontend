@@ -5,6 +5,7 @@ import axios from 'axios';
 import { useRouter } from 'next/router';
 import { RiDeleteBin5Fill } from 'react-icons/ri';
 import Loader from '../../components/loader';
+import Image from 'next/image';
 export default function Scooties({}) {
   const router = useRouter()
   const [productData,setProductData] = React.useState([])
@@ -17,7 +18,12 @@ export default function Scooties({}) {
     }
     React.useEffect(()=>{
       if(router.query.vehicleType!==undefined){
-        getproductData()
+        async()=>{
+          const response = await  axios.get(`http://localhost:8000/api/product/getProductByType/${router.query.vehicleType}`)
+          // console.log("this is product dta",productData)
+          setProductData(response.data.result)
+          setLoading(false)
+        }
       }
 
     },[router])
@@ -33,14 +39,14 @@ export default function Scooties({}) {
         <h1>{router.query.vehicleType}</h1>
       </div>
       <div className={styles.vehicleProducts}>
-        {productData.map((product) => (
+        {productData.map((product:any) => (
           <>
             <div
                  onClick={()=>{
                   router.push(`/product-detail/${product._id}`)
                  }} 
             className={styles.vehicleProductCard}>
-              <img src={`data:image/jpeg;base64,${product?.frontImage.data}`} />
+              <Image alt="" src={`data:image/jpeg;base64,${product?.frontImage.data}`} />
               <div 
         
               className={styles.priceSection}>

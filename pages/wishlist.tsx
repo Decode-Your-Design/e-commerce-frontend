@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import axios from "axios";
 import { appContext } from "../context/appContext";
 import Loader from "../components/loader";
-export default function wishlist() {
+export default function Wishlist() {
   const router = useRouter()
   const [productData,setProductData] = React.useState([])
   const [loading,setLoading] = useState(true)
@@ -22,7 +22,7 @@ export default function wishlist() {
     setProductData(response.data.result)
     setLoading(false)
   }
-  const deleteItem = async(productId)=>{
+  const deleteItem = async(productId:any)=>{
     setLoading(true)
     const response = await  axios.post(`http://localhost:8000/api/wishlist/removeProductFromWishlist/${productId}`,null,{
       headers:{
@@ -77,7 +77,7 @@ export default function wishlist() {
         <h1>My Wishlist</h1>
       </div>
       <div className={styles.wishlistProducts}>
-        {productData.map((ele) => (
+        {productData.map((ele:any) => (
           <>
             <div 
     

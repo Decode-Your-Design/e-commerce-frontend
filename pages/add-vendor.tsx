@@ -1,13 +1,12 @@
 import styles from "../styles/add-vendor.module.css";
 import React from 'react'
 import {useState} from 'react'
-import apiService from './api/api'
-import http from "./api/http";
+// import apiService from './api/api.ts'
 import axios from 'axios'
 import { appContext } from "../context/appContext";
 import { useRouter } from "next/router";
 export default function AddVendor() {
-const [userDetail,setUserDetail] = useState({
+const [userDetail,setUserDetail] = useState<any>({
   fullName:"",
   phone:"",
   userType:"Vendor",
@@ -78,8 +77,8 @@ React.useEffect(()=>{
   if(localStorage.getItem('userType')!=="Admin"){
 router.push('/')
   }
-},[])
-const handleChange = (e)=>{
+},[router])
+const handleChange = (e:any)=>{
   setUserDetail({...userDetail,[e.target.name]:e.target.value})
 }
   return (
@@ -93,7 +92,7 @@ const handleChange = (e)=>{
         Add New Vendor
       </h1>
       <input onChange={(e)=>handleChange(e)} name="fullName" className={styles.input} placeholder="Enter Name" />
-      <input maxLength="10" minLength="10" onChange={(e)=>handleChange(e)} name="phone" type="number" className={styles.input} placeholder="Enter Phone" />
+      <input maxLength={10} minLength={10} onChange={(e)=>handleChange(e)} name="phone" type="number" className={styles.input} placeholder="Enter Phone" />
       <input  onChange={(e)=>handleChange(e)} name="password" type="password" className={styles.input} placeholder="Enter Password" />
       <input  onChange={(e)=>handleChange(e)} type="text" name="address" className={styles.input} placeholder="Enter Shop Address" />
       <input  onChange={(e)=>handleChange(e)} type="text" name="shopName" className={styles.input} placeholder="Enter Shopname" />

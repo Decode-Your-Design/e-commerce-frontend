@@ -43,11 +43,24 @@ export default function VendorList() {
       router.push('/')
     }
     else{
-    getVendorList()
+      async()=>{
+        const response =await axios.get('http://localhost:8000/api/admin/getAllVendor',    { headers: {"Authorization" : `Bearer ${localStorage.getItem('accessToken')}`} })
+        setLoading(false)
+        if(response.data.success){
+          setVendorList(response.data.result)
+        }
+        else{
+          sessionStorage.setItem('backgroundColor',"red")
+          sessionStorage.setItem('toastifyContent',response.data.message)
+          setOpenToastify(true)
+          
+        }
+     
+      }
     }
       
-  },[])
-  const deleteVendor = async(id)=>{
+  },[router,setOpenToastify])
+  const deleteVendor = async(id:any)=>{
     setLoading(true)
     const response =await axios.get(`http://localhost:8000/api/admin/removeVendor/${id}`, { headers: {"Authorization" : `Bearer ${localStorage.getItem('accessToken')}`} })
          if(response.data.success){
@@ -86,7 +99,7 @@ console.log("this is loading",loading)
       <h1>Vendor List</h1>
     </div>
       <div className={styles.vendorListProducts}>
-        {vendorList.map((vendor,key) => (
+        {vendorList.map((vendor:any,key) => (
           <>{
             vendor?.isActive &&
           

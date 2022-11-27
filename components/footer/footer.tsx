@@ -5,7 +5,7 @@ import { RiFacebookFill } from "react-icons/ri";
 import { RiTwitterLine } from "react-icons/ri";
 import { RiSearchLine } from "react-icons/ri";
 import { useRouter } from "next/router";
-const footer = () => {
+const Footer = () => {
   const router  = useRouter()
   return (
     <>
@@ -55,4 +55,4 @@ const footer = () => {
   );
 };
 
-export default footer;
+export default Footer;

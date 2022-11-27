@@ -9,13 +9,14 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import { appContext } from "../context/appContext";
 import Loader from "../components/loader";
+import Image from "next/image";
 export default function VendorProductList() {
   const router = useRouter();
   const { setOpenToastify } = useContext(appContext);
   const [openForm, setOpenForm] = useState(false);
   const [addProduct, setAddProduct] = useState(true);
   const [productsData, setProductsData] = useState([]);
-  const [productData, setProductData] = useState({
+  const [productData, setProductData] = useState<any>({
     name:"",
     price:"",
     shortDesc:"",
@@ -47,19 +48,33 @@ export default function VendorProductList() {
 
   React.useEffect(() => {
     if (localStorage.getItem("userType") == "Vendor") {
-      getVendorProducts();
+      // getVendorProducts();
+      async () => {
+        const response = await axios.get(
+          `http://localhost:8000/api/product/getVendorProducts`,
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+            },
+          }
+        );
+        if(response.data.success){
+        setProductsData(response.data.result);
+        setLoading(false)
+        }
+        else{
+          sessionStorage.setItem('backgroundColor',"red")
+          sessionStorage.setItem('toastifyContent',response.data.message)
+          setOpenToastify(true)
+        }
+      };
+    
     } else {
       router.push("/");
     }
-  }, []);
+  }, [router]);
 
-  const getProductImage = (ele)=>{
-    const base64String = btoa(
-        String.fromCharCode(new Uint8Array(ele))
-      
-    );
-    return base64String
-  }
+
   const deleteProduct = async (productId: String) => {
     setLoading(true)
     const response = await axios.post(
@@ -125,7 +140,7 @@ export default function VendorProductList() {
         </div>
         :
       <div className={styles.vendorProducts}>
-        {productsData.map((product) => {
+        {productsData.map((product:any) => {
                   // const base64String = window.btoa(
                   //   String.fromCharCode(...new Uint8Array(product.img.data.data))
                   // );
@@ -154,7 +169,7 @@ export default function VendorProductList() {
    
         {/* <img src="https://static.autox.com/uploads/2018/10/Honda-Activa-5G-Image-Gallery-5-.jpg" width="300"/> 
         */}
-        <img src={`data:image/jpeg;base64,${product?.frontImage?.data}`} />
+          <Image alt="" src={`data:image/jpeg;base64,${product?.frontImage?.data}`} />
 {/* // how to use image in frontend */}
 {/* // <img src={`data:image/png;base64,${base64String}`} width="300"/> */}
               {/* <img src="https://static.autox.com/uploads/2018/10/Honda-Activa-5G-Image-Gallery-5-.jpg" /> */}

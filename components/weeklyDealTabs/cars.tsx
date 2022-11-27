@@ -5,18 +5,18 @@ import axios from 'axios';
 import ProductCard from '../weeklyDealProduct/ProductCard';
 import { useRouter } from 'next/router';
 import Loader from '../loader';
-export default function Cars({toggleState}) {
+export default function Cars({toggleState}:any) {
   const [productData,setProductData] = React.useState([])
-    const getproductData = async()=>{
-      const response = await  axios.get('http://localhost:8000/api/product/getProductByType/car')
-      console.log("this is product dta",productData)
-      setProductData(response.data.result)
-      setLoading(false)
-    }
+
     const[loading,setLoading] = React.useState(true)
     React.useEffect(()=>{
-        getproductData()
-
+      const getproductData = async()=>{
+        const response = await  axios.get('http://localhost:8000/api/product/getProductByType/car')
+        console.log("this is product dta",productData)
+        setProductData(response.data.result)
+        setLoading(false)
+      }
+      getproductData()
     },[])
     console.log()
     const router = useRouter()
@@ -37,7 +37,8 @@ export default function Cars({toggleState}) {
   :
         <>
      <div className={styles.productList}>
-      {productData.slice(0,8).map((item, index) => (
+      {productData.slice(0,8).map((item:any, key:any) => (
+        <div key={key} >
         <ProductCard
           item={item}
           toggleState={toggleState}
@@ -48,6 +49,7 @@ export default function Cars({toggleState}) {
    styles.content 
           }
         />
+        </div>
       ))}
     </div>
     <button

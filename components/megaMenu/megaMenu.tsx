@@ -10,10 +10,10 @@ export default function megaMenu({ timeOutId, setCurrentHovered }:any) {
       }}
       className={styles.megaMenu}
     >
-      {megaMenuItems.map((ele) => (
-        <div className={styles.menuItems}>
+      {megaMenuItems.map((ele,key) => (
+        <div key={key} className={styles.menuItems}>
           {ele.map((element, key) => (
-            <p style={{ fontWeight: key == 0 ? "bold" : "" }}>{element}</p>
+            <p key={key} style={{ fontWeight: key == 0 ? "bold" : "" }}>{element}</p>
           ))}
         </div>
       ))}

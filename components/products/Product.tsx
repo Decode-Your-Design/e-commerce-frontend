@@ -7,7 +7,7 @@ import inwishlist from '../../public/inwishlist.png'
 import notinwishlist from '../../public/notinwishlist.png'
 
 
-const Product = ({ product }) => {
+const Product = ({ product }:any) => {
   const [toggleAddToCart, setToggleAddToCart] = useState(false)
   const [inWishlist,setInWishlist] = useState(false)
   const [wishlistHover,setWishlistHover] = useState(false)
@@ -27,10 +27,11 @@ const Product = ({ product }) => {
         {toggleAddToCart &&
           <div className={styles.addToCart} >
             <p>Add to cart</p>
-            <Image style={{filter:'invert(1)'}} src={shoppingCart} width={20} height={20}   />
+            <Image style={{filter:'invert(1)'}} alt="" src={shoppingCart} width={20} height={20}   />
           </div>}
 
-        <img
+        <Image
+        alt=""
           onMouseOver={() => {
             console.log("on mouse over")
             setToggleAddToCart(true)
@@ -52,6 +53,7 @@ const Product = ({ product }) => {
           }}
           className={styles.wishlistdiv} >
         <Image
+        alt=""
                 // onMouseOver={()=>setWishlistHover(true)}
                 // onMouseLeave={()=>setWishlistHover(false)}
         src={inWishlist ? inwishlist : notinwishlist} width={20} height={20}   />

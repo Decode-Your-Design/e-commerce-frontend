@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { RiCloseFill } from "react-icons/ri";
 import axios from "axios";
 import { appContext } from "../../context/appContext";
-export default function PopupForm({ addProduct,setLoading, setOpenForm,productData,setProductData,getVendorProducts }) {
+export default function PopupForm({ addProduct,setLoading, setOpenForm,productData,setProductData,getVendorProducts }:any) {
   const router = useRouter();
   const _id = localStorage.getItem("_id");
   const accessToken = localStorage.getItem("accessToken");
@@ -13,10 +13,10 @@ const data={
   name:""
 }
 console.log("hello",productData)
-  const [image,setImage] = useState({})
-  const [backImage,setBackImage] = useState({})
-  const [leftImage,setLeftImage] = useState({})
-  const [rightImage,setRightImage] = useState({})
+  const [image,setImage] = useState<any>({})
+  const [backImage,setBackImage] = useState<any>({})
+  const [leftImage,setLeftImage] = useState<any>({})
+  const [rightImage,setRightImage] = useState<any>({})
   const addVendorProduct = async () => {
     let allField = true
       console.log("this is product data",productData)
@@ -64,25 +64,25 @@ getVendorProducts()
   }
   
   };
-  const handleImageChange = (e)=>{
+  const handleImageChange = (e:any)=>{
 console.log("e.target.value",e.target.files[0])
 setImage(e.target.files[0])
 // setProductData({ ...productData, ['image']: e.target.files[0] });
 
   }
-  const handleLeftImageChange = (e)=>{
+  const handleLeftImageChange = (e:any)=>{
 console.log("e.target.value",e.target.files[0])
 setLeftImage(e.target.files[0])
 // setProductData({ ...productData, ['image']: e.target.files[0] });
 
   }
-  const handleRightImageChange = (e)=>{
+  const handleRightImageChange = (e:any)=>{
 console.log("e.target.value",e.target.files[0])
 setRightImage(e.target.files[0])
 // setProductData({ ...productData, ['image']: e.target.files[0] });
 
   }
-  const handleBackImageChange = (e)=>{
+  const handleBackImageChange = (e:any)=>{
 console.log("e.target.value",e.target.files[0])
 setBackImage(e.target.files[0])
 // setProductData({ ...productData, ['image']: e.target.files[0] });

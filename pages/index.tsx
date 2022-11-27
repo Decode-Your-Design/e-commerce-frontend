@@ -10,8 +10,6 @@ import { DEALS } from "../data";
 import { useEffect, useState } from "react";
 import DealsSlider from "../components/weeklyDealSlider/dealsSlider";
 import DealsTabs from "../components/weeklyDealTabs/DealsTabs";
-import OurServices from "../components/ourService/ourServices";
-import BannerWithCards from "../components/bannerWithCards/bannerWithCards";
 import Home from "./home";
 
 

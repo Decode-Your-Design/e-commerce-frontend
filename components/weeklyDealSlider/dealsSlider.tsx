@@ -1,4 +1,5 @@
 import axios from "axios";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import React from 'react'
 import styles from "../../styles/home.module.css";
@@ -40,7 +41,7 @@ const DealsSlider = ({   currentSlide }:any) => {
       :
     
     
-      deals.map((deal,key)=>(
+      deals.map((deal:any,key)=>(
         <>
         {currentDeal==key &&
         <>
@@ -55,8 +56,11 @@ const DealsSlider = ({   currentSlide }:any) => {
           </p>
         </div>
         <div className={styles.logo}>
-          <img
+          <Image
+            width= "80%"
+            height= "400px"
           style={{cursor:'pointer'}}
+          alt=""
           onClick={()=>router.push(`./product-detail/${deal?._id}`)}
           // src={deals[currentSlide] && deals[currentSlide].logo} />
           src={`data:image/jpeg;base64,${deal.frontImage?.data}`}/>

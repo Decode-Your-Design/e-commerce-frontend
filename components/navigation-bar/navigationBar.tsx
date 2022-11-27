@@ -7,7 +7,7 @@ import { navigationItems } from "../../data";
 import { useRouter } from "next/router";
 import {RiMenuFill,RiCloseFill} from 'react-icons/ri'
 
-export default function navigationBar() {
+export default function NavigationBar() {
   const [currentHovered, setCurrentHovered] = useState(null);
   const[openNavDrawer,setOpenNavDrawer] = useState(false)
   const [openDrawer, setOpenDrawer] = useState(false);
@@ -22,7 +22,10 @@ const userType= window?.localStorage?.getItem("userType")
     <>
       <div className={styles.navigationContainer}>
         <div className={styles.logoDiv}>
-          <img
+          <Image
+          alt=""
+          width='5rem'
+          height='5rem'
           onClick={()=>router.push('/')}
             src="https://graphicsfamily.com/wp-content/uploads/edd/2021/07/Free-Car-Logo-Design-Source-PNG-Transparent.png"
             className={styles.logo}

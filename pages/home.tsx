@@ -11,8 +11,7 @@ import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import DealsSlider from "../components/weeklyDealSlider/dealsSlider";
 import DealsTabs from "../components/weeklyDealTabs/DealsTabs";
-import OurServices from "../components/ourService/ourServices";
-import BannerWithCards from "../components/bannerWithCards/bannerWithCards";
+
 
 
 const Home: NextPage = () => {

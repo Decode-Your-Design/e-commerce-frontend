@@ -6,7 +6,7 @@ import { appContext } from "../context/appContext";
 import { useRouter } from "next/router";
 import Loader from "../components/loader";
 export default function MyProfile() {
-  const [userData, setUserData] = useState({});
+  const [userData, setUserData] = useState<any>({});
   const [disableButton,setDisableButton] = useState(false)
   const[loading,setLoading] = React.useState(true)
   const fetchProfile = async () => {
@@ -111,7 +111,7 @@ export default function MyProfile() {
   };
 
   const [changePassword,setChangePassword] = useState(false)
-  const handleChange = (e) => {
+  const handleChange = (e:any) => {
     setUserData({ ...userData, [e.target.name]: e.target.value });
   };
   React.useEffect(() => {
@@ -119,9 +119,28 @@ export default function MyProfile() {
       router.push('/')
     }
     else{
-    fetchProfile();
+      async () => {
+        const response = await axios.get(
+          `http://localhost:8000/api/users/fetchUserInfo`,
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+            },
+          }
+        );
+        
+        if (response.data.success) {
+          setUserData(response.data.result);
+          setLoading(false)
+        }
+        else{
+          sessionStorage.setItem('backgroundColor',"red")
+          sessionStorage.setItem("toastifyContent",response.data.message)
+          setOpenToastify(true)
+        }
+      };
     }
-  }, []);
+  }, [router,setOpenToastify]);
   const [login, setLogin] = useState(true);
   return (
     
@@ -162,7 +181,7 @@ export default function MyProfile() {
         <input
           onChange={(e) => handleChange(e)}
           type="text"
-          maxLength="10"
+          maxLength={10}
           name="phone"
           className={styles.input}
           value={userData?.phone}

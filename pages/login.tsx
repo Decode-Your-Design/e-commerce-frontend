@@ -5,9 +5,9 @@ import axios from "axios";
 import { appContext } from "../context/appContext";
 import { useRouter } from "next/router";
 import Loader from "../components/loader";
-export default function login() {
+export default function Login() {
   const router = useRouter()
-  const [userDetail, setUserDetail] = useState({
+  const [userDetail, setUserDetail] = useState<any>({
     phone: "",
     password: "",
     userType:"Customer"
@@ -15,7 +15,7 @@ export default function login() {
   const [login, setLogin] = useState(false);
   const[loading,setLoading] = React.useState(false)
   const {openToastify,setOpenToastify} = React.useContext(appContext)
-  const handleChange = (e) => {
+  const handleChange = (e:any) => {
     setUserDetail({ ...userDetail, [e.target.name]: e.target.value });
   };
   const signup = async()=>{
@@ -113,7 +113,7 @@ export default function login() {
           className={styles.input}
           name="phone"
           type="number"
-          maxLength="10"
+          maxLength={10}
           placeholder="Enter phone number"
         />
         <input
