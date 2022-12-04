@@ -9,13 +9,13 @@ export default function Cars({toggleState}:any) {
   const [productData,setProductData] = React.useState([])
 
     const[loading,setLoading] = React.useState(true)
+    const getproductData = async()=>{
+      const response = await  axios.get('http://localhost:8000/api/product/getProductByType/car')
+      console.log("this is product dta",productData)
+      setProductData(response.data.result)
+      setLoading(false)
+    }
     React.useEffect(()=>{
-      const getproductData = async()=>{
-        const response = await  axios.get('http://localhost:8000/api/product/getProductByType/car')
-        console.log("this is product dta",productData)
-        setProductData(response.data.result)
-        setLoading(false)
-      }
       getproductData()
     },[])
     console.log()

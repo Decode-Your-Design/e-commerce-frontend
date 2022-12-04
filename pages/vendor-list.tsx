@@ -43,20 +43,7 @@ export default function VendorList() {
       router.push('/')
     }
     else{
-      async()=>{
-        const response =await axios.get('http://localhost:8000/api/admin/getAllVendor',    { headers: {"Authorization" : `Bearer ${localStorage.getItem('accessToken')}`} })
-        setLoading(false)
-        if(response.data.success){
-          setVendorList(response.data.result)
-        }
-        else{
-          sessionStorage.setItem('backgroundColor',"red")
-          sessionStorage.setItem('toastifyContent',response.data.message)
-          setOpenToastify(true)
-          
-        }
-     
-      }
+      getVendorList()
     }
       
   },[router,setOpenToastify])

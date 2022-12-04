@@ -10,11 +10,12 @@ const Footer = () => {
   return (
     <>
       <div className={styles.footer}>
-        {[0].map(() => (
-          <div className={styles.footerItems}>
+        {[0].map((ele,key) => (
+          <div  key={key} className={styles.footerItems}>
             <p className={styles.footerItemHeading}>Top categories</p>
-            {footerItems.map((footerItem) => (
+            {footerItems.map((footerItem,key) => (
               <p
+              key={key}
               onClick={() => {
                 router.push(`/all-products/${footerItem.url}`);
               }}

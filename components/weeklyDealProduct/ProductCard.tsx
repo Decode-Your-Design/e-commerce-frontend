@@ -9,7 +9,7 @@ const ProductCard = ({ item,toggleState}: any) => {
       style={{cursor:"pointer"}}
       onClick={()=>router.push(`/product-detail/${item._id}`)}
       className={styles.card}>
-        <Image className={styles.productLogo} width="100%" height="10rem" src={`data:image/jpeg;base64,${item.frontImage.data}`} alt="" />
+        <img className={styles.productLogo}   src={`data:image/jpeg;base64,${item.frontImage.data}`} alt="" />
         <div
           className={styles.actualPrice}
           style={{ fontSize: "1.2rem", justifySelf: "center" }}

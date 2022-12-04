@@ -119,26 +119,7 @@ export default function MyProfile() {
       router.push('/')
     }
     else{
-      async () => {
-        const response = await axios.get(
-          `http://localhost:8000/api/users/fetchUserInfo`,
-          {
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-            },
-          }
-        );
-        
-        if (response.data.success) {
-          setUserData(response.data.result);
-          setLoading(false)
-        }
-        else{
-          sessionStorage.setItem('backgroundColor',"red")
-          sessionStorage.setItem("toastifyContent",response.data.message)
-          setOpenToastify(true)
-        }
-      };
+      fetchProfile()
     }
   }, [router,setOpenToastify]);
   const [login, setLogin] = useState(true);

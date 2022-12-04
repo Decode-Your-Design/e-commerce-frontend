@@ -99,7 +99,7 @@ setLoading(false)
                 // onMouseOver={() => setCurrentImage(key)}
                 className={styles.productExtraImages}
               >
-                <Image  alt=""
+                <img alt=""
                        onClick={()=>{
                         setCurrentImage(productData?.frontImage?.data)
                       }}
@@ -114,7 +114,7 @@ setLoading(false)
                 // onMouseOver={() => setCurrentImage(key)}
                 className={styles.productExtraImages}
               >
-                <Image  alt=""
+                <img alt=""
                        onClick={()=>{
                         setCurrentImage(productData?.backImage?.data)
                       }}
@@ -128,7 +128,7 @@ setLoading(false)
                 // onMouseOver={() => setCurrentImage(key)}
                 className={styles.productExtraImages}
               >
-                <Image  alt=""
+                <img  alt=""
                       onClick={()=>{
                         setCurrentImage(productData?.leftImage?.data)
                       }}
@@ -145,7 +145,7 @@ setLoading(false)
                 }}
                 className={styles.productExtraImages}
               >
-                <Image  alt=""
+                <img  alt=""
                   style={{
                     // border: currentImage == key ? "1px solid black" : "",
                   }}

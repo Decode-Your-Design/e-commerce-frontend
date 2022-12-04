@@ -22,10 +22,9 @@ const userType= window?.localStorage?.getItem("userType")
     <>
       <div className={styles.navigationContainer}>
         <div className={styles.logoDiv}>
-          <Image
+          <img
           alt=""
-          width='5rem'
-          height='5rem'
+   
           onClick={()=>router.push('/')}
             src="https://graphicsfamily.com/wp-content/uploads/edd/2021/07/Free-Car-Logo-Design-Source-PNG-Transparent.png"
             className={styles.logo}

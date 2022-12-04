@@ -161,7 +161,7 @@
   /* width: 100%; */
   justify-self: center;
   align-self: center;
-  /* height: 10rem; */
+  height: 10rem;
 }
 .card {
   display: grid;

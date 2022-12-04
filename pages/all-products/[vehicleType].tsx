@@ -18,12 +18,7 @@ export default function Scooties({}) {
     }
     React.useEffect(()=>{
       if(router.query.vehicleType!==undefined){
-        async()=>{
-          const response = await  axios.get(`http://localhost:8000/api/product/getProductByType/${router.query.vehicleType}`)
-          // console.log("this is product dta",productData)
-          setProductData(response.data.result)
-          setLoading(false)
-        }
+        getproductData()
       }
 
     },[router])
@@ -46,7 +41,7 @@ export default function Scooties({}) {
                   router.push(`/product-detail/${product._id}`)
                  }} 
             className={styles.vehicleProductCard}>
-              <Image alt="" src={`data:image/jpeg;base64,${product?.frontImage.data}`} />
+              <img alt="" src={`data:image/jpeg;base64,${product?.frontImage.data}`} />
               <div 
         
               className={styles.priceSection}>

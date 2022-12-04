@@ -9,14 +9,14 @@ export default function Bikes({ toggleState }: any) {
   const [loading, setLoading] = React.useState(true);
   const [productData, setProductData] = React.useState([]);
 
+  const getproductData = async () => {
+    const response = await axios.get(
+      "http://localhost:8000/api/product/getProductByType/bike"
+    );
+    setProductData(response.data.result);
+    setLoading(false);
+  };
   React.useEffect(() => {
-    const getproductData = async () => {
-      const response = await axios.get(
-        "http://localhost:8000/api/product/getProductByType/bike"
-      );
-      setProductData(response.data.result);
-      setLoading(false);
-    };
     getproductData()
 
   }, []);

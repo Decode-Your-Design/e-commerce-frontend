@@ -8,14 +8,14 @@ import Loader from '../loader';
 export default function Scooties({toggleState}:any) {
   const [productData,setProductData] = React.useState<any>([])
   const[loading,setLoading] = React.useState(true)
-
+  const getproductData = async()=>{
+    const response = await  axios.get('http://localhost:8000/api/product/getProductByType/scooty')
+    console.log("this is product dta",productData)
+    setProductData(response.data.result)
+    setLoading(false)
+  }
     React.useEffect(()=>{
-      const getproductData = async()=>{
-        const response = await  axios.get('http://localhost:8000/api/product/getProductByType/scooty')
-        console.log("this is product dta",productData)
-        setProductData(response.data.result)
-        setLoading(false)
-      }
+ 
       getproductData()
 
     },[])

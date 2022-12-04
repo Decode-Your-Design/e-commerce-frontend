@@ -49,25 +49,7 @@ export default function VendorProductList() {
   React.useEffect(() => {
     if (localStorage.getItem("userType") == "Vendor") {
       // getVendorProducts();
-      async () => {
-        const response = await axios.get(
-          `http://localhost:8000/api/product/getVendorProducts`,
-          {
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-            },
-          }
-        );
-        if(response.data.success){
-        setProductsData(response.data.result);
-        setLoading(false)
-        }
-        else{
-          sessionStorage.setItem('backgroundColor',"red")
-          sessionStorage.setItem('toastifyContent',response.data.message)
-          setOpenToastify(true)
-        }
-      };
+      getVendorProducts()
     
     } else {
       router.push("/");

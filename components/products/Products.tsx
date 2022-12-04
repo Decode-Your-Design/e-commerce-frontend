@@ -59,7 +59,7 @@ const Products = ({ title }: { title: string }) => {
                             showPreviousProduct()
                         }}
                         className={`${styles.arrow} ${styles.arrowBack}`}  >
-                        <Image alt="" className={styles.arrowImage} src={arrowback} width={10} height={10} />
+                        <img alt="" className={styles.arrowImage} src={`${arrowback}`}  />
                     </div>}
 
                 {lastIndex != productData.length &&

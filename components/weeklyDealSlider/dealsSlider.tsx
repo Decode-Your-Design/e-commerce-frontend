@@ -56,9 +56,9 @@ const DealsSlider = ({   currentSlide }:any) => {
           </p>
         </div>
         <div className={styles.logo}>
-          <Image
-            width= "80%"
-            height= "400px"
+          <img
+            // width = {"80%"}
+            // height = {400}
           style={{cursor:'pointer'}}
           alt=""
           onClick={()=>router.push(`./product-detail/${deal?._id}`)}

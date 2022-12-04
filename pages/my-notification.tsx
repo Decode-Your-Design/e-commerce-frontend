@@ -33,26 +33,7 @@ export default function MyNotification() {
     React.useEffect(()=>{
       if(localStorage.getItem("userType")=="Admin"){
 // getNotification()
-async()=>{
-  const response = await axios.post(
-      `http://localhost:8000/api/contact/getContactQuery`,
-      {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
-      }
-    );
-    console.log("fgd",response)
-    if(response.data.success){
-      setLoading(false)
-      setContactData(response.data.result)
-    }
-    else{
-      sessionStorage.setItem('backgroundColor',"red")
-      sessionStorage.setItem("toastifyContent",response.data.message)
-      setOpenToastify(true)
-    }
-}
+getNotification()
       }
       else{router.push('/')
       }
