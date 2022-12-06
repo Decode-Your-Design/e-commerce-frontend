@@ -9,10 +9,10 @@ export default function Scooties({toggleState}:any) {
   const [productData,setProductData] = React.useState<any>([])
   const[loading,setLoading] = React.useState(true)
   const getproductData = async()=>{
-    const response = await  axios.get('http://143.110.190.163/api/product/getProductByType/scooty')
+    const response = await  axios.get('http://143.110.190.163//api/product/getProductByType/scooty')
     console.log("this is product dta",productData)
     setProductData(response.data.result)
-    setLoading(false)
+    setLoading(false)2
   }
     React.useEffect(()=>{
  
