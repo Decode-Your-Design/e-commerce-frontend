@@ -12,7 +12,7 @@ export default function Scooties({toggleState}:any) {
     const response = await  axios.get('http://143.110.190.163//api/product/getProductByType/scooty')
     console.log("this is product dta",productData)
     setProductData(response.data.result)
-    setLoading(false)2
+    setLoading(false);
   }
     React.useEffect(()=>{
  
