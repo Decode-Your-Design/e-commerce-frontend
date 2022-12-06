@@ -7,7 +7,7 @@ const next = require('next')
 const dev = process.env.NODE_ENV !== 'production'
 // const hostname = process.env.NODE_ENV!=='production'  ? 'localhost' : 'vigorousmotor.com'
 const hostname = 'vigorousmotor.com'
-// const port =143.110.190.163
+const port ='143.110.190.163'
 // when using middleware `hostname` and `port` must be provided below
 const app = next({ dev, hostname, port })
 const handle = app.getRequestHandler()
