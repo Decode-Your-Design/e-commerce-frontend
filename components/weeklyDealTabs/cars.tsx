@@ -10,7 +10,7 @@ export default function Cars({toggleState}:any) {
 
     const[loading,setLoading] = React.useState(true)
     const getproductData = async()=>{
-      const response = await  axios.get('http://localhost:8000/api/product/getProductByType/car')
+      const response = await  axios.get('https://lobster-app-ymo47.ondigitalocean.app/product/getProductByType/car')
       console.log("this is product dta",productData)
       setProductData(response.data.result)
       setLoading(false)
