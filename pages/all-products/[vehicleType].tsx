@@ -11,7 +11,7 @@ export default function Scooties({}) {
   const [productData,setProductData] = React.useState([])
   const[loading,setLoading] = React.useState(true)
     const getproductData = async()=>{
-      const response = await  axios.get(`http://localhost:8000/api/product/getProductByType/${router.query.vehicleType}`)
+      const response = await  axios.get(`https://lobster-app-ymo47.ondigitalocean.app/api/product/getProductByType/${router.query.vehicleType}`)
       console.log("this is product dta",productData)
       setProductData(response.data.result)
       setLoading(false)

@@ -25,7 +25,7 @@ export default function VendorList() {
   const [vendorList,setVendorList] = useState([])
   const [loading,setLoading] = useState(true)
   const getVendorList = async()=>{
-    const response =await axios.get('http://localhost:8000/api/admin/getAllVendor',    { headers: {"Authorization" : `Bearer ${localStorage.getItem('accessToken')}`} })
+    const response =await axios.get('https://lobster-app-ymo47.ondigitalocean.app/api/admin/getAllVendor',    { headers: {"Authorization" : `Bearer ${localStorage.getItem('accessToken')}`} })
     setLoading(false)
     if(response.data.success){
       setVendorList(response.data.result)
@@ -49,7 +49,7 @@ export default function VendorList() {
   },[router,setOpenToastify])
   const deleteVendor = async(id:any)=>{
     setLoading(true)
-    const response =await axios.get(`http://localhost:8000/api/admin/removeVendor/${id}`, { headers: {"Authorization" : `Bearer ${localStorage.getItem('accessToken')}`} })
+    const response =await axios.get(`https://lobster-app-ymo47.ondigitalocean.app/api/admin/removeVendor/${id}`, { headers: {"Authorization" : `Bearer ${localStorage.getItem('accessToken')}`} })
          if(response.data.success){
     sessionStorage.setItem('toastifyContent',response.data.message);
     sessionStorage.setItem('backgroundColor',"red");

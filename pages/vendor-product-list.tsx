@@ -28,7 +28,7 @@ export default function VendorProductList() {
 
   const getVendorProducts = async () => {
     const response = await axios.get(
-      `http://localhost:8000/api/product/getVendorProducts`,
+      `https://lobster-app-ymo47.ondigitalocean.app/api/product/getVendorProducts`,
       {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -60,7 +60,7 @@ export default function VendorProductList() {
   const deleteProduct = async (productId: String) => {
     setLoading(true)
     const response = await axios.post(
-      `http://localhost:8000/api/product/removeProduct/${productId}`,
+      `https://lobster-app-ymo47.ondigitalocean.app/api/product/removeProduct/${productId}`,
       productData,
       {
         headers: {

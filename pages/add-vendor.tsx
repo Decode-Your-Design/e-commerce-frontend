@@ -31,7 +31,7 @@ if(userDetail[key]==''){
     alert("Please Enter 10 Digit Mobile Number")
   }
   if(letAddVendor){
-const response =await axios.post('http://localhost:8000/api/auth/signUp',userDetail)
+const response =await axios.post('https://lobster-app-ymo47.ondigitalocean.app/api/auth/signUp',userDetail)
 if(response.data.success){
 sessionStorage.setItem('toastifyContent',"Vendor added successfully");
 sessionStorage.setItem('backgroundColor',"#28a745");
@@ -59,7 +59,7 @@ if(userDetail[key]==''){
     alert("Please Enter 10 Digit Mobile Number")
   }
   if(letAddVendor){
-const response =await axios.post('http://localhost:8000/api/admin/changeRole',userDetail,  { headers: {"Authorization" : `Bearer ${localStorage.getItem("accessToken")}`} })
+const response =await axios.post('https://lobster-app-ymo47.ondigitalocean.app/api/admin/changeRole',userDetail,  { headers: {"Authorization" : `Bearer ${localStorage.getItem("accessToken")}`} })
 if(response.data.success){
 sessionStorage.setItem('toastifyContent',"Vendor added successfully");
 sessionStorage.setItem('backgroundColor',"#28a745");

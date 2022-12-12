@@ -35,7 +35,7 @@ export default function Login() {
   if(letUserSign){
     setLoading(true)
     // setDisableButton(true)
-    const response =await axios.post('http://localhost:8000/api/auth/signUp',userDetail)
+    const response =await axios.post('https://lobster-app-ymo47.ondigitalocean.app/api/auth/signUp',userDetail)
     // setDisableButton(false)
     setLoading(false)
     if(response.data.success){
@@ -68,7 +68,7 @@ export default function Login() {
     if(letUserLogin){
       setLoading(true)
     const response = await axios.post(
-      "http://localhost:8000/api/auth/login",
+      "https://lobster-app-ymo47.ondigitalocean.app/api/auth/login",
       userDetail
     );
     setLoading(false)

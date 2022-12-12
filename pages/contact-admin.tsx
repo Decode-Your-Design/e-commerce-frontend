@@ -15,7 +15,7 @@ const [contactData,setContactData]  = useState({
   const router = useRouter()
   const contactAdmin = async()=>{
     const response = await axios.post(
-      `http://localhost:8000/api/contact/contactAdmin`,contactData,
+      `https://lobster-app-ymo47.ondigitalocean.app/api/contact/contactAdmin`,contactData,
       {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("accessToken")}`,

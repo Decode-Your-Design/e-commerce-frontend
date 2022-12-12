@@ -12,7 +12,7 @@ export default function Wishlist() {
   const [loading,setLoading] = useState(true)
   const {setOpenToastify} = React.useContext(appContext)
   const getMyWishlistData  = async()=>{
-    const response = await  axios.get('http://localhost:8000/api/wishlist/getWishlistProduct',{
+    const response = await  axios.get('https://lobster-app-ymo47.ondigitalocean.app/api/wishlist/getWishlistProduct',{
       headers:{
         Authorization:`Bearer ${localStorage.getItem('accessToken')}`
       }
@@ -24,7 +24,7 @@ export default function Wishlist() {
   }
   const deleteItem = async(productId:any)=>{
     setLoading(true)
-    const response = await  axios.post(`http://localhost:8000/api/wishlist/removeProductFromWishlist/${productId}`,null,{
+    const response = await  axios.post(`https://lobster-app-ymo47.ondigitalocean.app/api/wishlist/removeProductFromWishlist/${productId}`,null,{
       headers:{
         Authorization:`Bearer ${localStorage.getItem('accessToken')}`
       }

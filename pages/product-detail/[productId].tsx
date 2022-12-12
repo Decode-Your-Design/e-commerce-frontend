@@ -24,7 +24,7 @@ export default function Index() {
   const getProductDetail = async () => {
     console.log("fdbg0", router);
     const response = await axios.get(
-      `http://localhost:8000/api/product/getProductById/${router.query.productId}/${localStorage.getItem('userId')}`,
+      `https://lobster-app-ymo47.ondigitalocean.app/api/product/getProductById/${router.query.productId}/${localStorage.getItem('userId')}`,
     );
     console.log("this is response", response, response.data.result);
     setCurrentImage(response.data.result.frontImage?.data)
@@ -42,7 +42,7 @@ setLoading(false)
     else{
       setLoading(true)
     const response = await axios.post(
-      `http://localhost:8000/api/wishlist/addProductToWishlist/${productId}`,
+      `https://lobster-app-ymo47.ondigitalocean.app/api/wishlist/addProductToWishlist/${productId}`,
       null,
       {
         headers: {
@@ -61,7 +61,7 @@ setLoading(false)
   };
   const deleteItem = async()=>{
     setLoading(true)
-    const response = await  axios.post(`http://localhost:8000/api/wishlist/removeProductFromWishlist/${productId}`,null,{
+    const response = await  axios.post(`https://lobster-app-ymo47.ondigitalocean.app/api/wishlist/removeProductFromWishlist/${productId}`,null,{
       headers:{
         Authorization:`Bearer ${localStorage.getItem('accessToken')}`
       }

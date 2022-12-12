@@ -11,7 +11,7 @@ export default function MyProfile() {
   const[loading,setLoading] = React.useState(true)
   const fetchProfile = async () => {
     const response = await axios.get(
-      `http://localhost:8000/api/users/fetchUserInfo`,
+      `https://lobster-app-ymo47.ondigitalocean.app//api/users/fetchUserInfo`,
       {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -48,7 +48,7 @@ export default function MyProfile() {
     const formdata = new FormData()
     
     const response = await axios.post(
-      `http://localhost:8000/api/users/updateUserInfo`,
+      `https://lobster-app-ymo47.ondigitalocean.app/api/users/updateUserInfo`,
       userData,
       {
         headers: {
@@ -85,7 +85,7 @@ export default function MyProfile() {
     const formdata = new FormData()
     
     const response = await axios.post(
-      `http://localhost:8000/api/auth/changePassword`,
+      `https://lobster-app-ymo47.ondigitalocean.app/api/auth/changePassword`,
       userData,
       {
         headers: {

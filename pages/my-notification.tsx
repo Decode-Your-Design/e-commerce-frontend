@@ -12,7 +12,7 @@ export default function MyNotification() {
     const router = useRouter()
     const getNotification = async()=>{
         const response = await axios.post(
-            `http://localhost:8000/api/contact/getContactQuery`,
+            `https://lobster-app-ymo47.ondigitalocean.app/api/contact/getContactQuery`,
             {
               headers: {
                 Authorization: `Bearer ${localStorage.getItem("accessToken")}`,

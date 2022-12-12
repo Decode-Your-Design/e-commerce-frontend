@@ -11,7 +11,7 @@ export default function Bikes({ toggleState }: any) {
 
   const getproductData = async () => {
     const response = await axios.get(
-      "http://localhost:8000/api/product/getProductByType/bike"
+      "https://lobster-app-ymo47.ondigitalocean.app/api/product/getProductByType/bike"
     );
     setProductData(response.data.result);
     setLoading(false);

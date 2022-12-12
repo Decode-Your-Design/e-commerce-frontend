@@ -8,7 +8,7 @@ const DealsSlider = ({   currentSlide }:any) => {
 
   const getDealsOfTheWeek = async()=>{
     const response = await axios.get(
-      "http://localhost:8000/api/product/dealsOfTheWeek",
+      "https://lobster-app-ymo47.ondigitalocean.app/api/product/dealsOfTheWeek",
     );
     console.log("this is repsosne",response);
     if(response.data.success){

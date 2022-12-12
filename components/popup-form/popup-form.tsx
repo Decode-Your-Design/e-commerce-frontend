@@ -44,7 +44,7 @@ console.log("hello",productData)
     formdata.append('image',leftImage)
 
    const response= await axios.post(
-      "http://localhost:8000/api/product/addProduct",
+      "https://lobster-app-ymo47.ondigitalocean.app/api/product/addProduct",
       formdata,
       { headers: {"Authorization" : `Bearer ${accessToken}`} }
     );
@@ -96,7 +96,7 @@ setBackImage(e.target.files[0])
     setOpenForm(false)
     setLoading(true)
    const response = await axios.post(
-      `http://localhost:8000/api/product/updateProductDetails/${productData._id}`,
+      `https://lobster-app-ymo47.ondigitalocean.app/api/product/updateProductDetails/${productData._id}`,
       productData,
       { headers: {"Authorization" : `Bearer ${accessToken}`} }
     );
