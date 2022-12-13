@@ -13,19 +13,25 @@ const data={
   name:""
 }
 console.log("hello",productData)
-  const [image,setImage] = useState<any>({})
-  const [backImage,setBackImage] = useState<any>({})
-  const [leftImage,setLeftImage] = useState<any>({})
-  const [rightImage,setRightImage] = useState<any>({})
+  const [image,setImage] = useState<any>('')
+  const [backImage,setBackImage] = useState<any>('')
+  const [leftImage,setLeftImage] = useState<any>('')
+  const [rightImage,setRightImage] = useState<any>('')
   const addVendorProduct = async () => {
     let allField = true
       console.log("this is product data",productData)
     for(const key in productData){
-      if(productData[key]==""){
+      console.log("this is data",productData[key])
+      if(productData[key]==''){
         alert("All field are required")
         allField=false
         return
       }
+    }
+    if(image==''  || backImage=='' || leftImage=='' || rightImage==''){
+      alert("All field are required")
+      allField=false
+      return
     }
     if(allField){
     setOpenForm(false)
@@ -59,6 +65,7 @@ getVendorProducts()
       sessionStorage.setItem('backgroundColor',"red")
       sessionStorage.setItem("toastifyContent",response.data.message)
       setOpenToastify(true)
+      setLoading(false)
     }
 
   }

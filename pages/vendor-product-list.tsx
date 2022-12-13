@@ -49,6 +49,7 @@ export default function VendorProductList() {
   React.useEffect(() => {
     if (localStorage.getItem("userType") == "Vendor") {
       // getVendorProducts();
+      // setProductData({})
       getVendorProducts()
     
     } else {
@@ -100,7 +101,7 @@ export default function VendorProductList() {
         <div style={{ textAlign: "end" }}>
           <button
             onClick={() => {
-              setProductData({})
+              
               setAddProduct(true);
               setOpenForm(true);
             }}

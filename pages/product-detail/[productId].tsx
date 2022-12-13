@@ -84,6 +84,9 @@ setLoading(false)
 
   const [currentImage, setCurrentImage] = React.useState(null);
   const [arrowDown, setArrowDown] = React.useState(true);
+  const calculateoff = (price:any,offerPrice:any)=>{
+return offerPrice/price * 100
+  }
   const[loading,setLoading] = useState(true)
   return (
     loading ?
@@ -186,9 +189,9 @@ setLoading(false)
                 ₹{productData?.offerPrice}
               </span>
               <span className={styles.actualPrice}>
-                ₹{productData?.actualPrice}
+                ₹{productData?.price}
               </span>
-              <span className={styles.discount}>50% off</span>
+              <span className={styles.discount}> {calculateoff(productData?.price,productData?.offerPrice)} % </span>
             </p>
             <span>{productData?.shortDesc}</span>
           </div>
