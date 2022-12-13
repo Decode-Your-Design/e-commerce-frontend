@@ -11,7 +11,7 @@ export default function MyProfile() {
   const[loading,setLoading] = React.useState(true)
   const fetchProfile = async () => {
     const response = await axios.get(
-      `https://lobster-app-ymo47.ondigitalocean.app//api/users/fetchUserInfo`,
+      `https://lobster-app-ymo47.ondigitalocean.app/api/users/fetchUserInfo`,
       {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
