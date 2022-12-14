@@ -48,7 +48,7 @@ const DealsSlider = ({   currentSlide }:any) => {
         <div className={styles.slider}>
         <div className={styles.slider__info}>
           <p className={styles.price}>
-            $ {deal?.offerPrice}
+          ₹ {deal?.offerPrice}
           </p>
           <p className={styles.title}>
             {/* {deal?.name} */}

@@ -157,7 +157,7 @@ export default function VendorProductList() {
                     </p>
                     <h3>
                       <span className={styles.offerPrice}>
-                        ₹{product?.actualPrice}
+                        ₹{product?.price}
                       </span>{" "}
                       <span className={styles.actualPrice}>
                         ₹{product?.offerPrice}

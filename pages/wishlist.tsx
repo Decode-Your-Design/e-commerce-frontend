@@ -104,7 +104,7 @@ export default function Wishlist() {
                 <p>{ele.product?.name.length<15 ? ele.product?.name :`${ele.product?.name.slice(0,15)}...`}</p>
                 {/* <p>{ele.product?.name}</p> */}
                 <h3>
-                  <span className={styles.offerPrice}>₹{ele.product?.actualPrice}</span>{" "}
+                  <span className={styles.offerPrice}>₹{ele.product?.price}</span>{" "}
                   <span className={styles.actualPrice}>₹{ele.product?.offerPrice}</span>
                 </h3>
               </div>
