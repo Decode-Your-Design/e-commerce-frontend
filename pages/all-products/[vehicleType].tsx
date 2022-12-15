@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 import { RiDeleteBin5Fill } from 'react-icons/ri';
 import Loader from '../../components/loader';
 import Image from 'next/image';
+import Head from 'next/head';
 export default function Scooties({}) {
   const router = useRouter()
   const [productData,setProductData] = React.useState([])
@@ -25,6 +26,10 @@ export default function Scooties({}) {
     console.log()
   return (
     <>
+            <Head>
+    <title>Second hand / used {router?.query?.vehicleType} in Udaipur </title>
+    <meta name="viewport" content={`Second hand / used ${router?.query?.vehicleType} in Udaipur`}/>
+  </Head>
     {
       loading ? 
       <Loader/>

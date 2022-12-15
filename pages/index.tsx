@@ -11,11 +11,13 @@ import { useEffect, useState } from "react";
 import DealsSlider from "../components/weeklyDealSlider/dealsSlider";
 import DealsTabs from "../components/weeklyDealTabs/DealsTabs";
 import Home from "./home";
-
+import Head from "next/head";
+import Script from 'next/script'
 
 const Index: NextPage = () => {
   return(
     <Home/>
+
   )
  };
 

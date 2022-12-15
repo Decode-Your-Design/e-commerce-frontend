@@ -193,7 +193,7 @@
     margin: 1rem 0.2rem;
 }
 .productList{
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr ;
 }
 .right_box{
   padding: 0;
@@ -202,7 +202,7 @@
   }
 @media  screen and (max-width: 480px) {
 .wishlistProducts{
-    grid-template-columns: 1fr 1fr   ;
+    grid-template-columns: 1fr  ;
 }
 .wishlistProductCard>img{
     height: 60%;

@@ -8,6 +8,7 @@ import { useRouter } from "next/router";
 import { appContext } from "../../context/appContext";
 import Loader from "../../components/loader";
 import Image from "next/image";
+import Head from "next/head";
 export default function Index() {
   const router = useRouter();
   const productId = router.query.productId;
@@ -89,7 +90,13 @@ return offerPrice/price * 100
   }
   const[loading,setLoading] = useState(true)
   return (
-    loading ?
+    <>
+        <Head>
+    <title>Second hand / used {productData?.name} in Udaipur</title>
+    <meta name="viewport" content={`Second hand / used ${productData?.name} in Udaipur`} />
+  </Head>
+  
+    {loading ?
     <Loader/>
     :
     <div >
@@ -220,5 +227,7 @@ return offerPrice/price * 100
         </div>
       </div>
     </div>
+}
+    </>
   );
 }

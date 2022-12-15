@@ -3,7 +3,9 @@
   height: 10vh;
   display: flex;
   align-items: center;
+  margin-bottom: 1rem;
   /* margin: 0.5rem 0rem; */
+  /* margin-bottom: ; */
   padding: 0.2rem 5rem;
   /* position: fixed; */
   top: 0;
@@ -45,7 +47,8 @@ align-items: center;
 }
 .logoDiv {
   width: 5rem !important;
-  height: 5rem !important;
+  height: 8vh !important;
+  margin: 0;
 }
 .navigationItems {
   display: flex;

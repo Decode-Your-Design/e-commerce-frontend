@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import styles from "../../styles/navigationbar.module.css";
 import Image from "next/image";
-import logo from "../../public/logo.png";
+// import logo from "../../public/logo.png";
 import MegaMenu from "../megaMenu/megaMenu";
 import { navigationItems } from "../../data";
 import { useRouter } from "next/router";
 import {RiMenuFill,RiCloseFill} from 'react-icons/ri'
-
+import logo from '../../public/logo.jpeg'
 export default function NavigationBar() {
   const [currentHovered, setCurrentHovered] = useState(null);
   const[openNavDrawer,setOpenNavDrawer] = useState(false)
@@ -21,15 +21,18 @@ const userType= window?.localStorage?.getItem("userType")
   return (
     <>
       <div className={styles.navigationContainer}>
-        <div className={styles.logoDiv}>
-          <img
-          alt=""
+        {/* <div className={styles.logoDiv}> */}
+          <Image
+          // layout="responsive"
+          src={logo}
+          width={100}
+          height={100}
    
           onClick={()=>router.push('/')}
-            src="https://graphicsfamily.com/wp-content/uploads/edd/2021/07/Free-Car-Logo-Design-Source-PNG-Transparent.png"
+
             className={styles.logo}
           />
-        </div>
+        {/* </div> */}
         <div className={styles.navigationItems}>
           <p 
           onClick={()=>router.push('/home')} 

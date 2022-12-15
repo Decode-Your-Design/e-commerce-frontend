@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import DealsSlider from "../components/weeklyDealSlider/dealsSlider";
 import DealsTabs from "../components/weeklyDealTabs/DealsTabs";
+import Head from "next/head";
 
 
 
@@ -20,6 +21,10 @@ const Home: NextPage = () => {
 
   return (
     <>
+       <Head>
+        <title>Vigorous Motor: Through this platform you can get access to used two as well as four wheeler vehicles in your city , directly from the delaers</title>
+        <meta name="description" content="Through this platform you can get access to used two as well as four wheeler vehicles in your city , directly from the delaers" />
+      </Head>
     {/* <Header/> */}
       <Banner />
       <div
