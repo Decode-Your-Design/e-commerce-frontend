@@ -6,6 +6,9 @@ import { useRouter } from "next/router";
 import { appContext } from "../context/appContext";
 export default function ContactAdmin() {
 const [contactData,setContactData]  = useState({
+  fullName:"",
+  phone:'',
+address:'',
   message:"I want to become a vendor"
 })
   const handleChange = (e:any)=>{
@@ -14,6 +17,15 @@ const [contactData,setContactData]  = useState({
   const {openToastify,setOpenToastify} = React.useContext(appContext)
   const router = useRouter()
   const contactAdmin = async()=>{
+    let validate = true
+    for(const key in contactData){
+      if(contactData[key]==''){
+        validate=false
+        alert("All fields are required")
+
+      }
+    }
+    if(validate){
     const response = await axios.post(
       `https://lobster-app-ymo47.ondigitalocean.app/api/contact/contactAdmin`,contactData,
       {
@@ -33,6 +45,7 @@ const [contactData,setContactData]  = useState({
       setOpenToastify(true)
     }
     
+  }
   }
   React.useEffect(()=>{
     if(localStorage.getItem("userType")!=='Customer' ){

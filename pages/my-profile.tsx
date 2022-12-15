@@ -100,7 +100,7 @@ export default function MyProfile() {
       sessionStorage.setItem("toastifyContent", response.data.message);
       setChangePassword(false)
       setOpenToastify(true);
-      // fetchProfile()
+      fetchProfile()
     }
     else{
       sessionStorage.setItem('backgroundColor',"red")
