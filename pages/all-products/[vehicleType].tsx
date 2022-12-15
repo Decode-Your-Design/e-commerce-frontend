@@ -28,7 +28,7 @@ export default function Scooties({}) {
     <>
             <Head>
     <title>Second hand / used {router?.query?.vehicleType} in Udaipur </title>
-    <meta name="viewport" content={`Second hand / used ${router?.query?.vehicleType} in Udaipur`}/>
+    <meta name="description" content={`Second hand / used ${router?.query?.vehicleType} in Udaipur`}/>
   </Head>
     {
       loading ? 

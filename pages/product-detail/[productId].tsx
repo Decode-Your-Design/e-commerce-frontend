@@ -93,7 +93,7 @@ return offerPrice/price * 100
     <>
         <Head>
     <title>Second hand / used {productData?.name} in Udaipur</title>
-    <meta name="viewport" content={`Second hand / used ${productData?.name} in Udaipur`} />
+    <meta name="description" content={`${productData?.longDesc}`} />
   </Head>
   
     {loading ?
