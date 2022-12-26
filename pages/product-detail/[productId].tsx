@@ -204,7 +204,7 @@ return offerPrice/price * 100
           </div>
           <div>
             <div className={styles.attributeSection}>
-              <h1>Color: Yellow</h1>
+              {/* <h1>Color: Yellow</h1> */}
               <p style={{marginTop:"0.5rem"}}> <span style={{fontWeight:"bold"}} > Contact vendor </span> :{vendorInfo?.phone}</p>
             <p style={{marginTop:"0.5rem"}}><span style={{fontWeight:"bold"}} > Shop Name </span>:{vendorInfo?.shopName}</p>
             <p style={{marginTop:"0.5rem"}} ><span style={{fontWeight:"bold",marginTop:"0.5rem"}} > Shop Address </span>:{vendorInfo?.address}</p>
